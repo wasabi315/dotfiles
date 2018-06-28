@@ -74,13 +74,18 @@ cd i3blocks
 make clean debug
 make install
 
+# install termite
+cd ${DOT_DIRECTORY}/termite-install
+./termite-install.sh
+
 echo "finish installing apps!"
 
 # set up neovim (for neovim plugins)
 echo "setting up neovim..."
-
 pip3 install neovim
-
 echo "done!"
+
+# enable lightdm
+sudo systemctl enable lightdm
 
 
