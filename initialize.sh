@@ -29,8 +29,6 @@ packagelist = (
     "cmake"
     "git"
     "python3-pip"
-    "open-vm-tools"
-    "open-vm-tools-desktop"
 
     # applicatoion
     "feh"
