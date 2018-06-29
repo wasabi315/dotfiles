@@ -2,6 +2,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+source ~/dotfiles/git-completion.bash
+source ~/dotfiles/git-prompt.sh
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -56,8 +59,13 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+GIT_PS1_SHOWDIRTYSTYLE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWSTASHSTATE=true
+GIT_PS1_SHOWUPSTREAM=auto
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\][ \w ]\[\033[00m\]\n\[\033[01;32m\]\A\[\033[00m\] \$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\][ \w\[\033[01;32m\]$(__git_ps1)\[\033[00m\]\[\033[01;34m\] ]\[\033[00m\]\n\[\033[01;32m\]\A\[\033[00m\] \$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
