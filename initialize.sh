@@ -24,6 +24,19 @@ packagelist = (
     "libyajl-dev"
     "xutils-dev"
 
+    "libgtk-3-dev"
+    "g++"
+    "gtk-doc-tools"
+    "gnutls-bin"
+    "valac"
+    "intltool"
+    "libpcre2-dev"
+    "libglib3.0-cli-dev"
+    "libgnutls28-dev"
+    "libgirepository1.0-dev"
+    "libxml2-utils"
+    "gperf"
+
     # tools
     "build-essntial"
     "cmake"
@@ -36,10 +49,11 @@ packagelist = (
     "neovim"
     "ranger"
     "rofi"
-    "yabar"
 )
 
 echo "start installing apps..."
+
+sudo apt update && sudo apt upgrade && sudo apt dist-upgrade
 
 for pkg in ${packagelist[@]}; do
     sudo apt install -y ${pkg}
@@ -73,8 +87,20 @@ make clean debug
 make install
 
 # install termite
-cd ${DOT_DIRECTORY}/termite-install
-./termite-install.sh
+cd ~/repos
+mkdir -p termite && cd termite
+git clone --recursive https://github.com/thestinger/termite.git termite
+git clone https://github.com/thestinger/vte-ng.git
+
+echo export LIBRARY_PATH="/usr/include/gtk-3.0:$LIBRARY_PATH"
+cd vte-ng && ./autogen.sh && make && sudo make install
+cd ../termite && make && sudo make install
+sudo ldconfig
+sudo mkdir -p /lib/terminfo/x; sudo ln -s \
+    /usr/local/share/terminfo/x/xterm-termite \
+    /lib/terminfo/x/xterm-termite
+
+sudo update-altermatives -- install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/termite 60
 
 echo "finish installing apps!"
 

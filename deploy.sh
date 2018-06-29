@@ -11,7 +11,6 @@ for f in .??*; do
     [ ${f} = ".config" ]         && continue
     [ ${f} = ".gitignore" ]      && continue
     [ ${f} = ".gitmodules" ]     && continue
-    [ ${f} = "termite-install" ] && continue
 
     ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
 done
