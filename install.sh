@@ -1,5 +1,4 @@
 #!/bin/bash
 
-echo "dotfiles"
-echo "hello"
-
+./initialize.sh
+./deploy.sh

@@ -84,7 +84,7 @@ cd ~/repos
 git clone git://github.com/vivien/i3blocks
 cd i3blocks
 make clean debug
-make install
+sudo make install
 
 # install termite
 cd ~/repos

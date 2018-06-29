@@ -44,12 +44,6 @@ repo = 'tpope/vim-fugitive'
 repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
-repo = 'tpope/vim-eunuch'
-
-[[plugins]]
-repo = 'mhinz/vim-startify'
-
-[[plugins]]
 repo = 'jiangmiao/auto-pairs'
 on_i = 1
 
