@@ -56,11 +56,6 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-GIT_PS1_SHOWDIRTYSTYLE=true
-GIT_PS1_SHOWUNTRACKEDFILES=true
-GIT_PS1_SHOWSTASHSTATE=true
-GIT_PS1_SHOWUPSTREAM=auto
-
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\][ \w\[\033[01;33m\]\[\033[00m\]\[\033[01;34m\] ]\[\033[00m\]\n\[\033[01;32m\]\A\[\033[00m\] \$ '
 else
