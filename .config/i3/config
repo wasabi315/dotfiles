@@ -16,10 +16,10 @@
 # colors
 
 # workspaces
-set $ws1  "1"
-set $ws2  "2"
-set $ws3  "3"
-set $ws4  "4"
+set $ws1  "1: "
+set $ws2  "2: "
+set $ws3  "3: "
+set $ws4  "4: "
 set $ws5  "5"
 set $ws6  "6"
 set $ws7  "7"
@@ -59,6 +59,12 @@ for_window [class="^.*"] border pixel 0
 
 # font
 font pango:SauceCodePro Nerd Font Mono 18
+
+# bar
+bar {
+    status_command i3blocks
+    position top
+}
 
 
 # key bindings ----------------------------------------------------------------
@@ -167,7 +173,7 @@ bindsym Mod1+r mode "resize"
 
 # assign ----------------------------------------------------------------------
 # Firefox (web browser)
-assign [class="Firefox"] $ws2
+assign [class="Firefox"] $ws3
 
 # Termite (terminal emulator)
 assign [class="Termite"] $ws1
