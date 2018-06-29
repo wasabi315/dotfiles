@@ -86,4 +86,3 @@ echo "done!"
 # enable lightdm
 sudo systemctl enable lightdm
 
-
