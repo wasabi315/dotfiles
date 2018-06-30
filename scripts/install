@@ -1,0 +1,74 @@
+#!/bin/bash -eu
+
+DOTPATH="${HOME}/dotfiles"
+DOT_TARBALL="https://github.com/wasabi315/dotfiles/tarball/master"
+REMOTE_URL="git@github.com:wasabi315/dotfiles.git"
+
+has() {
+    type "$1" > /dev/null 2>&1
+}
+
+e_newline() {
+    printf "\n"
+}
+
+e_header() {
+    printf " \033[37;1m%s\033[m\n" "$*"
+}
+
+e_error() {
+    printf " \033[37;1m%s\033[m\n" "Error.. $*"
+}
+
+e_warning() {
+    printf " \033[37;1m%s\033[m\n" "$*"
+}
+
+e_done() {
+    printf " \033[37;1m%s\033[m\n" "Done.."
+}
+
+
+dotfiles_download() {
+    e_newline
+    e_header "Downloading dotfiles..."
+
+    mkdir ${DOTPATH}
+
+    if has "git"; then
+        git clone --recursive "${REMOTE_URL}" "${DOTPATH}"
+    else
+        wget -qO ${HOME}/dotfiles.tar.gz ${DOT_TARBALL}
+        tar -xzvf ${HOME}/dotfiles.tar.gz -C ${DOTPATH}
+        rm ${HOME}/dotfiles.tar.gz
+    fi
+
+    e_done
+}
+
+dotfiles_deploy() {
+    e_newline
+    e_header "Deploying dotfiles..."
+
+    make deploy
+
+    e_newline
+    e_done
+}
+
+dotfiles_initialize() {
+    e_newline
+    e_header "Initializing dotfiles"
+
+    make init
+
+    e_newline
+    e_done
+}
+
+dotfiles_install() {
+    dotfiles_download &&
+    dotfiles_deploy &&
+    dotfiles_initialize
+}
+

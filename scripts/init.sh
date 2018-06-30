@@ -1,6 +1,6 @@
 #!/bin/bash -eu
 
-packagelist = (
+packagelist=(
     # GUI
     "lightdm"
     "lightdm-gtk-greeter"
@@ -24,6 +24,7 @@ packagelist = (
     "libyajl-dev"
     "xutils-dev"
 
+    # packages required by termite
     "libgtk-3-dev"
     "g++"
     "gtk-doc-tools"
@@ -31,7 +32,7 @@ packagelist = (
     "valac"
     "intltool"
     "libpcre2-dev"
-    "libglib3.0-cli-dev"
+    "libglib3.0-cil-dev"
     "libgnutls28-dev"
     "libgirepository1.0-dev"
     "libxml2-utils"
@@ -42,8 +43,9 @@ packagelist = (
     "cmake"
     "git"
     "python3-pip"
+    "x11-utils"
 
-    # applicatoion
+    # applications
     "feh"
     "firefox"
     "neovim"
@@ -51,13 +53,10 @@ packagelist = (
     "rofi"
 )
 
-echo "start installing apps..."
+echo 'start installing apps...'
+echo ' '
 
 sudo apt update && sudo apt upgrade && sudo apt dist-upgrade
-
-for pkg in ${packagelist[@]}; do
-    sudo apt install -y ${pkg}
-done
 
 mkdir -p ~/repos
 
@@ -103,12 +102,12 @@ sudo mkdir -p /lib/terminfo/x; sudo ln -s \
 sudo update-altermatives -- install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/termite 60
 
 echo "finish installing apps!"
+echo ' '
 
 # set up neovim (for neovim plugins)
 echo "setting up neovim..."
+echo ' '
 pip3 install neovim
 echo "done!"
-
-# enable lightdm
-sudo systemctl enable lightdm
+echo ' '
 
