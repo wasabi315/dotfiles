@@ -7,3 +7,4 @@ alias ~="cd ~"
 
 alias vi="nvim"
 
+alias mk="touch"
