@@ -12,14 +12,29 @@
 #                             \_______/            \__|
 #
 
-# resources -------------------------------------------------------------------
-# colors
+# variables -------------------------------------------------------------------
+set $darkred       #A54242
+set $red           #CC6666
+set $darkgreen     #8C9440
+set $green         #B5BD68
+set $darkyellow    #DE935F
+set $yellow        #F0C674
+set $darkblue      #5F819D
+set $blue          #81A2BE
+set $darkmagenta   #85678F
+set $magenta       #B294BB
+set $darkcyan      #5E8D87
+set $cyan          #8ABEB7
+set $darkwhite     #707880
+set $white         #C5C8C6
+set $darkblack     #1D1F21
+set $black         #282A2E
+set $transparent   #00000000
 
-# workspaces
 set $ws1  " Terminal"
 set $ws2  " Code"
 set $ws3  " Firefox"
-set $ws4  " Files"
+set $ws4  "4"
 set $ws5  "5"
 set $ws6  "6"
 set $ws7  "7"
@@ -27,154 +42,137 @@ set $ws8  "8"
 set $ws9  "9"
 set $ws10 "10"
 
-# startup programs ------------------------------------------------------------
-# feh (image viewer)
-exec --no-startup-id ~/.fehbg
+set $mod Mod1
 
-# comptom (window compositor)
-exec --no-startup-id compton
-
-# yabar
-exec --no-startup-id yabar
-
-# general ---------------------------------------------------------------------
-focus_follows_mouse no
-
-# GUI settings ----------------------------------------------------------------
-# gaps
-gaps inner 15
-gaps outer 15
-
-# colors                     border   background  text      indicator  child_border
-# client.focused             #ffffff  #ffffff     #ffffff   #ffffff    #ffffff
-# client.focused             #ffffff  #ffffff     #ffffff   #ffffff    #ffffff
-# client.focused             #ffffff  #ffffff     #ffffff   #ffffff    #ffffff
-# client.focused             #ffffff  #ffffff     #ffffff   #ffffff    #ffffff
-# client.focused             #ffffff  #ffffff     #ffffff   #ffffff    #ffffff
-#
-# client.background
-
-# window borders
-for_window [class="^.*"] border pixel 0
-
-# font
-font pango:SauceCodePro Nerd Font Mono 18
-
-# bar
-bar {
-    status_command i3blocks
-    position top
-}
-
-
-# key bindings ----------------------------------------------------------------
-# use these keys for focus, movement, and resize directions when reaching for
-# the arrows is not convenient
 set $up    k
 set $down  j
 set $left  h
 set $right l
 
-# use Mouse+Mod1 to drag floating windows to their wanted position
-floating_modifier Mod1
+set $gaps_inner 15
+set $gaps_outer 15
 
-# start a terminal
-bindsym Mod1+Return exec termite
+# startup programs ------------------------------------------------------------
+exec --no-startup-id ~/.fehbg
+exec --no-startup-id compton -b
 
-# kill focused window
-bindsym Mod1+Shift+q kill
+# general ---------------------------------------------------------------------
+focus_follows_mouse no
 
-# start rofi (a program launcher)
-bindsym Mod1+d exec rofi -modi drun -show drun
+# GUI settings ----------------------------------------------------------------
+gaps inner $gaps_inner
+gaps outer $gaps_outer
 
-# change focus
-bindsym Mod1+$left  focus left
-bindsym Mod1+$down  focus down
-bindsym Mod1+$up    focus up
-bindsym Mod1+$right focus right
+new_window none
 
-# move focused window
-bindsym Mod1+Shift+$left  move left
-bindsym Mod1+Shift+$down  move down
-bindsym Mod1+Shift+$up    move up
-bindsym Mod1+Shift+$right move right
+#                       BORDER   BACKGROUND TEXT       INDICATOR  CHILD_BORDER
+client.focused          $black   $black     $darkwhite $darkblack $darkblack
+client.unfocused        $black   $black     $white     $darkblack $darkblack
+client.focused_inactive $black   $black     $white     $darkblack $darkblack
+client.urgent           $darkred $darkred   $black     $darkred   $darkred
+client.background       $black
 
-# alternatively, you can use the cursor keys:
-bindsym Mod1+Shift+Left  move left
-bindsym Mod1+Shift+Down  move down
-bindsym Mod1+Shift+Up    move up
-bindsym Mod1+Shift+Right move right
+for_window [class="^.*"] border pixel 2
 
-# split in horizontal orientation
-bindsym Mod1+Shift+v split h
+font pango:SauceCodePro Nerd Font Mono 15
 
-# split in vertical orientation
-bindsym Mod1+v split v
+for_window [window_role="pop-up"]      floating enable
+for_window [window_role="bubble"]      floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
 
-# enter fullscreen mode for the focused container
-bindsym Mod1+f fullscreen toggle
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"]   floating enable
 
-# move the currently focused window to the scratchpad
-bindsym Mod1+Shift+minus move scratchpad
+bar {
+    status_command i3blocks
+    position top
+    font pango:SauceCodePro Nerd Font 15
+    separator_symbol ""
+    colors {
+        statusline              $white
+        background              $transparent
+        separator               $darkwhite
 
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-bindsym Mod1+minus scratchpad show
+        #                       BORDER        BACKGROUND   TEXT
+        focused_workspace       $transparent  $darkblue    $transparent
+        inactive_workspace      $transparent  $transparent $darkwhite
+        active_workspace        $transparent  $transparent $darkwhite
+        urgent_workspace        $darkred      $darkred     $transparent
+        binding_mode            $darkred      $darkred     $transparent
+    }
+}
 
-# switch to workspace
-bindsym Mod1+1 workspace $ws1
-bindsym Mod1+2 workspace $ws2
-bindsym Mod1+3 workspace $ws3
-bindsym Mod1+4 workspace $ws4
-bindsym Mod1+5 workspace $ws5
-bindsym Mod1+6 workspace $ws6
-bindsym Mod1+7 workspace $ws7
-bindsym Mod1+8 workspace $ws8
-bindsym Mod1+9 workspace $ws9
-bindsym Mod1+0 workspace $ws10
+# key bindings ----------------------------------------------------------------
 
-# move focused container to workspace
-bindsym Mod1+Shift+1 move container to workspace $ws1
-bindsym Mod1+Shift+2 move container to workspace $ws2
-bindsym Mod1+Shift+3 move container to workspace $ws3
-bindsym Mod1+Shift+4 move container to workspace $ws4
-bindsym Mod1+Shift+5 move container to workspace $ws5
-bindsym Mod1+Shift+6 move container to workspace $ws6
-bindsym Mod1+Shift+7 move container to workspace $ws7
-bindsym Mod1+Shift+8 move container to workspace $ws8
-bindsym Mod1+Shift+9 move container to workspace $ws9
-bindsym Mod1+Shift+0 move container to workspace $ws10
+floating_modifier $mod
 
-# reload the configuration file
-bindsym Mod1+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym Mod1+Shift+r restart
+bindsym $mod+Return exec termite
 
-# resize window (you can also use the mouse for that)
+bindsym $mod+Shift+q kill
+
+bindsym $mod+d exec rofi -modi drun -show drun
+
+bindsym $mod+$left  focus left
+bindsym $mod+$down  focus down
+bindsym $mod+$up    focus up
+bindsym $mod+$right focus right
+
+bindsym $mod+Shift+$left  move left
+bindsym $mod+Shift+$down  move down
+bindsym $mod+Shift+$up    move up
+bindsym $mod+Shift+$right move right
+
+bindsym $mod+Shift+v split h
+
+bindsym $mod+v split v
+
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+Shift+minus move scratchpad
+
+bindsym $mod+minus scratchpad show
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
 mode "resize" {
-    # These bindings trigger as soon as you enter the resize mode
-
-    # Pressing left will shrink the window’s width.
-    # Pressing right will grow the window’s width.
-    # Pressing up will shrink the window’s height.
-    # Pressing down will grow the window’s height.
     bindsym $left       resize shrink width 10 px or 10 ppt
     bindsym $down       resize grow height 10 px or 10 ppt
     bindsym $up         resize shrink height 10 px or 10 ppt
     bindsym $right      resize grow width 10 px or 10 ppt
 
-    # back to normal: Enter or Escape or Mod1+r
     bindsym Return mode "default"
     bindsym Escape mode "default"
-    bindsym Mod1+r mode "default"
+    bindsym $mod+r mode "default"
 }
 
-bindsym Mod1+r mode "resize"
+bindsym $mod+r mode "resize"
 
 # assign ----------------------------------------------------------------------
-# Firefox (web browser)
+assign [class="Termite"] $ws1
 assign [class="Firefox"] $ws3
 
-# Termite (terminal emulator)
-assign [class="Termite"] $ws1
 

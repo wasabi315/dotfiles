@@ -1,3 +1,5 @@
+separator_block_width=30
+
 [ram]
 label=
 command=/usr/local/libexec/i3blocks/memory | grep -E -o '[0-9].[0-9]?G'
