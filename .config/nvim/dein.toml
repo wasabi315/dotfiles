@@ -51,3 +51,8 @@ on_i = 1
 repo = 'Shougo/deoplete.nvim'
 on_i = 1
 
+[[plugins]]
+repo = 'tpope/vim-eunuch'
+
+[[plugins]]
+repo = 'majutsushi/tagbar'

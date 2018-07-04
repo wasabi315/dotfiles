@@ -5,8 +5,10 @@ call denite#custom#option('default', {
     \ 'prompt': '>',
     \ })
 
+
 " deoplete.nvim ----------------------------------------------------------
 let g:deoplete#enable_at_startup = 1
+
 
 " vim-airline ------------------------------------------------------------
 let g:airline#extensions#tabline#buffer_idx_format = {
@@ -42,7 +44,4 @@ endfunction
 function! Multiple_cursors_after()
     call deoplete#enable()
 endfunction
-
-" vim-splash -------------------------------------------------------------
-let g:splash#path = expand('~/.config/nvim/splash.txt')
 
