@@ -1,18 +1,11 @@
-#
-#     $$\  $$$$$$$\
-#     \__|$$ ____$$\
-#     $$\ \_/    $$ |         $$$$$$$\   $$$$$$$\   $$$$$$$\   $$$$$$$\
-#     $$ |  $$$$$$ /$$$$$$$\ $$  ___$$\  \_____$$\ $$  ___$$\ $$  _____|
-#     $$ |  \____$$\\_______|$$ /   $$ | $$$$$$$$ |$$ /   $$ |\$$$$$$$\
-#     $$ |$$\    $$ |        $$ |   $$ |$$  ___$$ |$$ |   $$ | \_____$$\
-#     $$ |\$$$$$$$  |        \$$$$$$$$ |\$$$$$$$$ |$$$$$$$$  |$$$$$$$$  |
-#     \__| \_______/          \_____$$ | \________|$$  _____/ \________/
-#                            $$\    $$ |           $$ |
-#                            \$$$$$$$  |           $$ |
-#                             \_______/            \__|
-#
+# ~/.config/i3/config -- i3 config file
+# =============================================================================
+# -- https://github.com/wasabi315/dotfiles
+# -- wasabi.nvim.st@gmail.com
+
 
 # variables -------------------------------------------------------------------
+
 set $darkred       #A54242
 set $red           #CC6666
 set $darkgreen     #8C9440
@@ -31,9 +24,9 @@ set $darkblack     #1D1F21
 set $black         #282A2E
 set $transparent   #00000000
 
-set $ws1  " Terminal"
-set $ws2  " Code"
-set $ws3  " Firefox"
+set $ws1  "1:   "
+set $ws2  "2:   "
+set $ws3  "3:   "
 set $ws4  "4"
 set $ws5  "5"
 set $ws6  "6"
@@ -50,14 +43,20 @@ set $left  h
 set $right l
 
 set $gaps_inner 15
-set $gaps_outer 15
+set $gaps_outer 0
+
 
 # startup programs ------------------------------------------------------------
 exec --no-startup-id ~/.fehbg
 exec --no-startup-id compton -b
 
+
 # general ---------------------------------------------------------------------
+force_display_urgency_hint 0 ms
 focus_follows_mouse no
+focus_on_window_activation urgent
+workspace_auto_back_and_forth yes
+
 
 # GUI settings ----------------------------------------------------------------
 gaps inner $gaps_inner
@@ -94,14 +93,15 @@ bar {
         background              $transparent
         separator               $darkwhite
 
-        #                       BORDER        BACKGROUND   TEXT
-        focused_workspace       $transparent  $darkblue    $transparent
-        inactive_workspace      $transparent  $transparent $darkwhite
-        active_workspace        $transparent  $transparent $darkwhite
-        urgent_workspace        $darkred      $darkred     $transparent
-        binding_mode            $darkred      $darkred     $transparent
+        #                       BORDER        BACKGROUND    TEXT
+        focused_workspace       $transparent  $transparent  $white
+        inactive_workspace      $transparent  $transparent  $darkwhite
+        active_workspace        $transparent  $transparent  $darkwhite
+        urgent_workspace        $darkred      $darkred      $transparent
+        binding_mode            $darkred      $darkred      $transparent
     }
 }
+
 
 # key bindings ----------------------------------------------------------------
 
@@ -111,27 +111,25 @@ bindsym $mod+Return exec termite
 
 bindsym $mod+Shift+q kill
 
-bindsym $mod+d exec rofi -modi drun -show drun
+bindsym $mod+d exec rofi -show combi
 
-bindsym $mod+$left  focus left
-bindsym $mod+$down  focus down
 bindsym $mod+$up    focus up
+bindsym $mod+$down  focus down
+bindsym $mod+$left  focus left
 bindsym $mod+$right focus right
 
-bindsym $mod+Shift+$left  move left
-bindsym $mod+Shift+$down  move down
 bindsym $mod+Shift+$up    move up
+bindsym $mod+Shift+$down  move down
+bindsym $mod+Shift+$left  move left
 bindsym $mod+Shift+$right move right
 
 bindsym $mod+Shift+v split h
-
-bindsym $mod+v split v
+bindsym $mod+v       split v
 
 bindsym $mod+f fullscreen toggle
 
 bindsym $mod+Shift+minus move scratchpad
-
-bindsym $mod+minus scratchpad show
+bindsym $mod+minus       scratchpad show
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -143,6 +141,7 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
+bindsym $mod+Tab workspace back_and_forth
 
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
@@ -158,6 +157,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
+bindsym $mod+r mode "resize"
 mode "resize" {
     bindsym $left       resize shrink width 10 px or 10 ppt
     bindsym $down       resize grow height 10 px or 10 ppt
@@ -169,10 +169,8 @@ mode "resize" {
     bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
 
 # assign ----------------------------------------------------------------------
 assign [class="Termite"] $ws1
 assign [class="Firefox"] $ws3
-
 

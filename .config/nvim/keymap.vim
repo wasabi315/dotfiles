@@ -1,6 +1,9 @@
 " ~/.config/nvim/keymap.vim
 
 " General ----------------------------------------------------------------
+" Leader key
+let mapleader = "\<Space>"
+
 " highlight the word under the cursor
 nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 
@@ -28,19 +31,20 @@ nnoremap <silent> p p`]
 nmap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
 
 " change buffer
-nnoremap <C-j> :bn<CR>
-nnoremap <C-k> :bp<CR>
+noremap  [Buffer] <Nop>
+nmap     <Leader>b [Buffer]
+nnoremap [Buffer]n :bn<CR>
+nnoremap [Buffer]p :bp<CR>
+nnoremap [Buffer]d :bd<CR>
+
 
 " For plugins ------------------------------------------------------------
-" Leader key
-let mapleader = "\<Space>"
-
 " Denite.nvim
 noremap  [Denite]  <Nop>
 nmap     <Leader>f [Denite]
 nnoremap [Denite]f :<C-u>DeniteBufferDir file<CR>
+nnoremap [Denite]p :<C-u>DeniteProjectDir file<CR>
 nnoremap [Denite]l :<C-u>Denite line<CR>
 
-" Deoplete.nvim
-
-
+" Tagbar
+nnoremap <silent> <F9> :TagbarToggle<CR>
