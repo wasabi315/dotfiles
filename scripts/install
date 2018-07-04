@@ -58,7 +58,7 @@ dotfiles_deploy() {
 
 dotfiles_initialize() {
     e_newline
-    e_header "Initializing dotfiles"
+    e_header "Initializing dotfiles..."
 
     make init
 
