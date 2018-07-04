@@ -37,15 +37,12 @@ export LC_ALL=en_US.UTF-8
 
 # Aliases ----------------------------------------------------------------
 
-# if [ -x /usr/bin/dircolors ]; then
-#   eval eval "`dircolors -b`"
-    alias ls='ls --color=auto'
-    alias vdir='vdir --color=auto'
-    alias dir='dir --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-# fi
+alias ls='ls --color=auto'
+alias vdir='vdir --color=auto'
+alias dir='dir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 alias ll='ls -alF'
 alias la='ls -A'
@@ -81,10 +78,10 @@ if [ -e ~/.git-prompt.sh ]; then
     source ~/.git-prompt.sh
     source ~/.git-completion.bash
 
-    GIT_PS1_SHOWDIRTYSTATE=1
-    GIT_PS1_SHOWSTASHSTATE=1
-    GIT_PS1_SHOWUNTRACKEDFILES=1
-    GIT_PS1_SHOWUPSTREAM=1
+    export GIT_PS1_SHOWDIRTYSTATE=1
+    export GIT_PS1_SHOWSTASHSTATE=1
+    export GIT_PS1_SHOWUNTRACKEDFILES=1
+    export GIT_PS1_SHOWUPSTREAM=1
 
     PS1='\[\e[01;34m\][ \w\[\e[01;33m\]$(__git_ps1)\[\e[00m\]\[\e[01;34m\] ]\[\e[00m\]\n\[\e[01;32m\]\A\[\e[00m\] \$ '
 else
