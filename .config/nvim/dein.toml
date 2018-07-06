@@ -56,3 +56,6 @@ repo = 'tpope/vim-eunuch'
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
+
+[[plugins]]
+repo = 'cocopon/iceberg.vim'

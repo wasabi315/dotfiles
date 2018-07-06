@@ -1,24 +1,24 @@
 * {
     font:                  "SauceCodePro Nerd Font Mono 15";
-    background-color:      @transparent;
+    background-color:      @darkblack;
     border-color:          @darkblue;
     text-color:            @white;
     darkred:               #A54242;
-    red:                   #CC6666;
-    darkgreen:             #8C9440;
-    green:                 #B5BD68;
-    darkyellow:            #DE935F;
-    yellow:                #F0C674;
-    darkblue:              #5F819D;
-    blue:                  #81A2BE;
-    darkmagenta:           #85678F;
-    magenta:               #B294BB;
-    darkcyan:              #5E8D87;
-    cyan:                  #8ABEB7;
-    darkwhite:             #707880;
-    white:                 #C5C8C6;
-    darkblack:             #1D1F21;
-    black:                 #282A2E;
+    red:                   #E98989;
+    darkgreen:             #B4BE82;
+    green:                 #C0CA8E;
+    darkyellow:            #E2A478;
+    yellow:                #E9B189;
+    darkblue:              #84A0C6;
+    blue:                  #91ACD1;
+    darkmagenta:           #A093C7;
+    magenta:               #ADA0D3;
+    darkcyan:              #89B8C2;
+    cyan:                  #95C4CE;
+    darkwhite:             #C6C8D1;
+    white:                 #D2D4DE;
+    darkblack:             #161821;
+    black:                 #6B7089;
     transparent:           rgba(0, 0, 0, 0);
 }
 
@@ -26,13 +26,13 @@ configuration {
 }
 
 window {
-    background-color: @black;
-    border:           0;
+    background-color: @darkblack;
+    border:           2;
     padding:          10;
 }
 mainbox {
     border:  0;
-    padding: 0;
+    padding: 4;
 }
 message {
     border:       1px dash 0px 0px ;
@@ -55,7 +55,7 @@ element {
     padding: 1px ;
 }
 element {
-    background-color: @black;
+    background-color: @darkblack;
     text-color:       @white;
 }
 element.selected {
@@ -77,7 +77,7 @@ button.selected {
     text-color:       @darkblack;
 }
 button {
-    background-color: @black;
+    background-color: @darkblack;
     text-color:       @white;
 }
 inputbar {

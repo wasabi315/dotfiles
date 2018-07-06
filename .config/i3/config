@@ -7,22 +7,23 @@
 # variables -------------------------------------------------------------------
 
 set $darkred       #A54242
-set $red           #CC6666
-set $darkgreen     #8C9440
-set $green         #B5BD68
-set $darkyellow    #DE935F
-set $yellow        #F0C674
-set $darkblue      #5F819D
-set $blue          #81A2BE
-set $darkmagenta   #85678F
-set $magenta       #B294BB
-set $darkcyan      #5E8D87
-set $cyan          #8ABEB7
-set $darkwhite     #707880
-set $white         #C5C8C6
-set $darkblack     #1D1F21
-set $black         #282A2E
+set $red           #E98989
+set $darkgreen     #B4BE82
+set $green         #C0CA8E
+set $darkyellow    #E2A478
+set $yellow        #E9B189
+set $darkblue      #84A0C6
+set $blue          #91ACD1
+set $darkmagenta   #A093C7
+set $magenta       #ADA0D3
+set $darkcyan      #89B8C2
+set $cyan          #95C4CE
+set $darkwhite     #C6C8D1
+set $white         #D2D4DE
+set $darkblack     #161821
+set $black         #6B7089
 set $transparent   #00000000
+set $background    #1E2132
 
 set $ws1  "1:   "
 set $ws2  "2:   "
@@ -42,8 +43,8 @@ set $down  j
 set $left  h
 set $right l
 
-set $gaps_inner 15
-set $gaps_outer 0
+set $gaps_inner 20
+set $gaps_outer 10
 
 
 # startup programs ------------------------------------------------------------
@@ -90,13 +91,13 @@ bar {
     separator_symbol ""
     colors {
         statusline              $white
-        background              $transparent
+        background              #1E2132
         separator               $darkwhite
 
         #                       BORDER        BACKGROUND    TEXT
-        focused_workspace       $transparent  $transparent  $white
-        inactive_workspace      $transparent  $transparent  $darkwhite
-        active_workspace        $transparent  $transparent  $darkwhite
+        focused_workspace       $transparent  $darkblue     $transparent
+        inactive_workspace      $transparent  $background   $darkwhite
+        active_workspace        $transparent  $background   $darkwhite
         urgent_workspace        $darkred      $darkred      $transparent
         binding_mode            $darkred      $darkred      $transparent
     }

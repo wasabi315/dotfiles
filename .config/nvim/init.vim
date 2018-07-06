@@ -56,8 +56,8 @@ set ttimeoutlen=50
 
 
 " Colors ---------------------------------------------------------------------
-colorscheme hybrid
-set background=dark
+set termguicolors
+colorscheme iceberg
 
 
 " UI -------------------------------------------------------------------------
