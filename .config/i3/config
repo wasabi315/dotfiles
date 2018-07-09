@@ -25,9 +25,9 @@ set $black         #6B7089
 set $transparent   #00000000
 set $background    #1E2132
 
-set $ws1  "1:   "
-set $ws2  "2:   "
-set $ws3  "3:   "
+set $ws1  "1"
+set $ws2  "2"
+set $ws3  "3"
 set $ws4  "4"
 set $ws5  "5"
 set $ws6  "6"
@@ -50,6 +50,8 @@ set $gaps_outer 10
 # startup programs ------------------------------------------------------------
 exec --no-startup-id ~/.fehbg
 exec --no-startup-id compton -b
+
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 
 # general ---------------------------------------------------------------------
@@ -84,24 +86,24 @@ for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"]   floating enable
 
-bar {
-    status_command i3blocks
-    position top
-    font pango:SauceCodePro Nerd Font 15
-    separator_symbol ""
-    colors {
-        statusline              $white
-        background              #1E2132
-        separator               $darkwhite
-
-        #                       BORDER        BACKGROUND    TEXT
-        focused_workspace       $transparent  $darkblue     $transparent
-        inactive_workspace      $transparent  $background   $darkwhite
-        active_workspace        $transparent  $background   $darkwhite
-        urgent_workspace        $darkred      $darkred      $transparent
-        binding_mode            $darkred      $darkred      $transparent
-    }
-}
+# bar {
+#     status_command i3blocks
+#     position top
+#     font pango:SauceCodePro Nerd Font 15
+#     separator_symbol ""
+#     colors {
+#         statusline              $white
+#         background              #1E2132
+#         separator               $darkwhite
+#
+#         #                       BORDER        BACKGROUND    TEXT
+#         focused_workspace       $transparent  $darkblue     $transparent
+#         inactive_workspace      $transparent  $background   $darkwhite
+#         active_workspace        $transparent  $background   $darkwhite
+#         urgent_workspace        $darkred      $darkred      $transparent
+#         binding_mode            $darkred      $darkred      $transparent
+#     }
+# }
 
 
 # key bindings ----------------------------------------------------------------
