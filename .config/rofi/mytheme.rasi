@@ -1,32 +1,17 @@
 * {
     font:                  "SauceCodePro Nerd Font Mono 15";
-    background-color:      @darkblack;
-    border-color:          @darkblue;
-    text-color:            @white;
-    darkred:               #A54242;
-    red:                   #E98989;
-    darkgreen:             #B4BE82;
-    green:                 #C0CA8E;
-    darkyellow:            #E2A478;
-    yellow:                #E9B189;
-    darkblue:              #84A0C6;
-    blue:                  #91ACD1;
-    darkmagenta:           #A093C7;
-    magenta:               #ADA0D3;
-    darkcyan:              #89B8C2;
-    cyan:                  #95C4CE;
-    darkwhite:             #C6C8D1;
-    white:                 #D2D4DE;
-    darkblack:             #161821;
-    black:                 #6B7089;
-    transparent:           rgba(0, 0, 0, 0);
+    background-color:      #1E2132;
+    background-selected:   #2A3158;
+    border-color:          #5B6389;
+    text-color:            #444B71;
+    text-selected:         #CDD1E6;
 }
 
 configuration {
 }
 
 window {
-    background-color: @darkblack;
+    background-color: @background-color;
     border:           2;
     padding:          10;
 }
@@ -36,16 +21,14 @@ mainbox {
 }
 message {
     border:       1px dash 0px 0px ;
-    border-color: @darkblue;
     padding:      1px ;
 }
 textbox {
-    text-color: @white;
+    text-color: @text-selected;
 }
 listview {
     fixed-height: 0;
     border:       2px dash 0px 0px ;
-    border-color: @darkblue;
     spacing:      2px ;
     scrollbar:    true;
     padding:      2px 0px 0px ;
@@ -55,12 +38,12 @@ element {
     padding: 1px ;
 }
 element {
-    background-color: @darkblack;
-    text-color:       @white;
+    background-color: @background-color;
+    text-color:       @text-color;
 }
 element.selected {
-    background-color: @darkblue;
-    text-color:       @darkblack;
+    background-color: @background-selected;
+    text-color:       @text-selected;
 }
 scrollbar {
     width:        4px ;
@@ -70,33 +53,32 @@ scrollbar {
 }
 sidebar {
     border:       2px dash 0px 0px ;
-    border-color: @darkblue;
 }
 button.selected {
-    background-color: @darkblue;
-    text-color:       @darkblack;
+    background-color: @background-selected;
+    text-color:       @text-selected;
 }
 button {
-    background-color: @darkblack;
-    text-color:       @white;
+    background-color: @background-color;
+    text-color:       @text-color;
 }
 inputbar {
     spacing:    0;
-    text-color: @white;
+    text-color: @text-selected;
     padding:    1px ;
     children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
 }
 case-indicator {
     spacing:    0;
-    text-color: @white;
+    text-color: @text-color;
 }
 entry {
     spacing:    0;
-    text-color: @white;
+    text-color: @text-selected;
 }
 prompt {
     spacing:    0;
-    text-color: @white;
+    text-color: @text-selected;
 }
 textbox-prompt-colon {
     expand:     false;
