@@ -43,39 +43,36 @@ scrollbar = off
 [colors]
 # If both of these are unset, cursor falls back to the foreground color,
 # and cursor_foreground falls back to the background color.
-cursor = #dcdccc
-cursor_foreground = #dcdccc
+cursor = #CDD1E6
+cursor_foreground = #CDD1E6
 
-foreground = #dcdccc
-foreground_bold = #dcdccc
+foreground = #CDD1E6
+foreground_bold = #CDD1E6
 
 # 20% background transparency (requires a compositor)
-background = rgba(29, 31, 31, 1.0)
-
-# If unset, will reverse foreground and background
-highlight = #2f2f2f
+background = #1E2132
 
 # Colors from color0 to color254 can be set
 color0 =  #161821
-color1 =  #e27878
-color2 =  #b4be82
-color3 =  #e2a478
-color4 =  #84a0c6
-color5 =  #a093c7
-color6 =  #89b8c2
-color7 =  #c6c8d1
-color8 =  #6b7089
-color9 =  #e98989
-color10 = #c0ca8e
-color11 = #e9b189
-color12 = #91acd1
-color13 = #ada0d3
-color14 = #95c4ce
-color15 = #d2d4de
+color1 =  #E27878
+color2 =  #B4BE82
+color3 =  #E2A478
+color4 =  #84A0C6
+color5 =  #A093C7
+color6 =  #89B8C2
+color7 =  #C6C8D1
+color8 =  #6B7089
+color9 =  #E98989
+color10 = #C0CA8E
+color11 = #E9B189
+color12 = #91ACD1
+color13 = #ADA0D3
+color14 = #95C4CE
+color15 = #D2D4DE
 
 [hints]
 #font = Monospace 12
-#foreground = #dcdccc
+#foreground = #CDD1E6
 #background = #3f3f3f
 #active_foreground = #e68080
 #active_background = #3f3f3f
