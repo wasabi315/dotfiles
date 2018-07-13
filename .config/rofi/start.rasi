@@ -2,7 +2,7 @@
     font:              "Iosevka Term 18";
 
     background-color:  transparent;
-    base-color:        #101010BA;
+    base-color:        #252525EE;
     inputbar-color:    #60606090;
     text-color:        #BBBBBBAA;
     text-selected:     #FFFFFFBB;
