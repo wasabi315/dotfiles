@@ -2,7 +2,7 @@
     font:              "Iosevka Term 18";
 
     background-color:  transparent;
-    base-color:        #252525EE;
+    base-color:        #252525E8;
     inputbar-color:    #60606090;
     text-color:        #BBBBBBAA;
     text-selected:     #FFFFFFBB;
@@ -12,7 +12,7 @@
 configuration {
     drun-icon-theme:  "Numix-Circle";
     columns:          3;
-    fullscreen:       true;
+    lines:            5;
     show-icons:       true;
 }
 

@@ -81,7 +81,7 @@ bindsym $mod+Return exec termite
 
 bindsym $mod+Shift+q kill
 
-bindsym $mod+d exec rofi -show combi
+bindsym $mod+d exec ~/.config/rofi/rofi.sh
 
 bindsym $mod+$up    focus up
 bindsym $mod+$down  focus down
