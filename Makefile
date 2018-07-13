@@ -4,9 +4,11 @@ EXCLUSIONS      := .git .gitmodules .config
 DOTFILES        := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
 DOTCONFDOTFILES := $(wildcard .config/*)
 
--include ./Makefile.d/ubuntu-init
 
 all:
+
+list:
+	@$(foreach val, $(DOTFILES) $(DOTCONFDOTFILES), ls -dF $(val);)
 
 deploy:
 	@$(foreach val, $(DOTFILES),        ln -snvf $(abspath $(val)) $(HOME)/$(val);)
@@ -15,7 +17,6 @@ deploy:
 init:
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/scripts/init.sh
 	@exec $$SHELL
-
 
 update:
 	@echo 'Update dotfiles...'

@@ -55,3 +55,4 @@ endfunction
 
 let g:tagbar_width = 40
 let g:tagbar_autoclose = 0
+

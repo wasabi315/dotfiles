@@ -59,3 +59,6 @@ repo = 'majutsushi/tagbar'
 
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
+
+[[plugins]]
+repo = 'chriskempson/base16-vim'

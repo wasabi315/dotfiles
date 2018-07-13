@@ -6,24 +6,11 @@
 
 # variables -------------------------------------------------------------------
 
-set $darkred       #A54242
-set $red           #E98989
-set $darkgreen     #B4BE82
-set $green         #C0CA8E
-set $darkyellow    #E2A478
-set $yellow        #E9B189
-set $darkblue      #84A0C6
-set $blue          #91ACD1
-set $darkmagenta   #A093C7
-set $magenta       #ADA0D3
-set $darkcyan      #89B8C2
-set $cyan          #95C4CE
-set $darkwhite     #C6C8D1
-set $white         #D2D4DE
-set $darkblack     #161821
-set $black         #6B7089
-set $transparent   #00000000
-set $background    #1E2132
+set $fg            #5B6389
+set $fg-focused    #CCD1E6
+set $bg            #1E2132
+set $bg-focused    #2A3158
+set $urgent        #E27878
 
 set $ws1  "1"
 set $ws2  "2"
@@ -44,7 +31,7 @@ set $left  h
 set $right l
 
 set $gaps_inner 20
-set $gaps_outer 10
+set $gaps_outer 0
 
 
 # startup programs ------------------------------------------------------------
@@ -58,7 +45,6 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 force_display_urgency_hint 0 ms
 focus_follows_mouse no
 focus_on_window_activation urgent
-workspace_auto_back_and_forth yes
 
 
 # GUI settings ----------------------------------------------------------------
@@ -67,12 +53,12 @@ gaps outer $gaps_outer
 
 new_window none
 
-#                       BORDER   BACKGROUND TEXT       INDICATOR  CHILD_BORDER
-client.focused          $black   $black     $darkwhite $darkblack $darkblack
-client.unfocused        $black   $black     $white     $darkblack $darkblack
-client.focused_inactive $black   $black     $white     $darkblack $darkblack
-client.urgent           $darkred $darkred   $black     $darkred   $darkred
-client.background       $black
+#                       BORDER   BACKGROUND  TEXT  INDICATOR  CHILD_BORDER
+client.focused          $bg      $bg         $fg   $bg        $bg
+client.unfocused        $bg      $bg         $fg   $bg        $bg
+client.focused_inactive $bg      $bg         $fg   $bg        $bg
+client.urgent           $urgent  $urgent     $bg   $urgent    $urgent
+client.background       $bg
 
 for_window [class="^.*"] border pixel 2
 
@@ -85,25 +71,6 @@ for_window [window_role="Preferences"] floating enable
 
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"]   floating enable
-
-# bar {
-#     status_command i3blocks
-#     position top
-#     font pango:SauceCodePro Nerd Font 15
-#     separator_symbol ""
-#     colors {
-#         statusline              $white
-#         background              #1E2132
-#         separator               $darkwhite
-#
-#         #                       BORDER        BACKGROUND    TEXT
-#         focused_workspace       $transparent  $darkblue     $transparent
-#         inactive_workspace      $transparent  $background   $darkwhite
-#         active_workspace        $transparent  $background   $darkwhite
-#         urgent_workspace        $darkred      $darkred      $transparent
-#         binding_mode            $darkred      $darkred      $transparent
-#     }
-# }
 
 
 # key bindings ----------------------------------------------------------------
@@ -172,8 +139,10 @@ mode "resize" {
     bindsym $mod+r mode "default"
 }
 
-
 # assign ----------------------------------------------------------------------
-assign [class="Termite"] $ws1
-assign [class="Firefox"] $ws3
+assign [class="Termite"]        $ws1
+assign [class="Firefox"]        $ws3
+assign [title="ranger"]         $ws4
+assign [class="GravitDesigner"] $ws5
+for_window [class="Spotify"] move to workspace $ws6, workspace --no-auto-back-and-forth $ws6
 

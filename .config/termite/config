@@ -8,7 +8,7 @@ allow_bold = true
 audible_bell = false
 clickable_url = false
 dynamic_title = true
-font = SauceCodePro Nerd Font 18
+font = Iosevka Term 18
 fullscreen = true
 icon_name = terminal
 mouse_autohide = true
@@ -18,42 +18,20 @@ scrollback_lines = 10000
 search_wrap = true
 urgent_on_bell = true
 hyperlinks = false
-
-# $BROWSER is used by default if set, with xdg-open as a fallback
-#browser = xdg-open
-
-# "system", "on" or "off"
+browser = firefox
 cursor_blink = on
-
-# "block", "underline" or "ibeam"
 cursor_shape = block
-
-# Hide links that are no longer valid in url select overlay mode
 filter_unmatched_urls = true
-
-# Emit escape sequences for extra modified keys
-#modify_other_keys = false
-
-# set size hints for the window
 size_hints = false
-
-# "off", "left" or "right"
 scrollbar = off
 
 [colors]
-# If both of these are unset, cursor falls back to the foreground color,
-# and cursor_foreground falls back to the background color.
-cursor = #CDD1E6
-cursor_foreground = #CDD1E6
+foreground = #C6C8D1
+foreground_bold = #C6C8D1
 
-foreground = #CDD1E6
-foreground_bold = #CDD1E6
+background = rgba(30, 33, 33, 1.00)
 
-# 20% background transparency (requires a compositor)
-background = #1E2132
-
-# Colors from color0 to color254 can be set
-color0 =  #161821
+color0 =  #1E2132
 color1 =  #E27878
 color2 =  #B4BE82
 color3 =  #E2A478

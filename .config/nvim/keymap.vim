@@ -33,15 +33,15 @@ nmap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
 " change buffer
 noremap  [Buffer] <Nop>
 nmap     <Leader>b [Buffer]
-nnoremap [Buffer]n :bn<CR>
-nnoremap [Buffer]p :bp<CR>
+nnoremap [Buffer]l :bn<CR>
+nnoremap [Buffer]h :bp<CR>
 nnoremap [Buffer]d :bd<CR>
 
 
 " For plugins ------------------------------------------------------------
 " Denite.nvim
 noremap  [Denite]  <Nop>
-nmap     <Leader>f [Denite]
+nmap     <Leader>d [Denite]
 nnoremap [Denite]f :<C-u>DeniteBufferDir file<CR>
 nnoremap [Denite]p :<C-u>DeniteProjectDir file<CR>
 nnoremap [Denite]l :<C-u>Denite line<CR>

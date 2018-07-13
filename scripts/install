@@ -1,12 +1,6 @@
 #!/bin/bash -eu
 
-DOTPATH="${HOME}/dotfiles"
-DOT_TARBALL="https://github.com/wasabi315/dotfiles/tarball/master"
-REMOTE_URL="git@github.com:wasabi315/dotfiles.git"
-
-has() {
-    type "$1" > /dev/null 2>&1
-}
+# general utilities ------------------------------------------------------
 
 e_newline() {
     printf "\n"
@@ -17,26 +11,40 @@ e_header() {
 }
 
 e_error() {
-    printf " \033[37;1m%s\033[m\n" "Error.. $*"
+    printf " \033[31;1m%s\033[m\n" "Error... $*"
 }
 
 e_warning() {
-    printf " \033[37;1m%s\033[m\n" "$*"
+    printf " \033[33;1m%s\033[m\n" "$*"
 }
 
 e_done() {
-    printf " \033[37;1m%s\033[m\n" "Done.."
+    printf " \033[37;1m%s\033[m\n" "Done..."
 }
 
+
+# Dotfiles ---------------------------------------------------------------
+
+if [ -z "${DOTPATH:-}" ]; then
+    DOTPATH="${HOME}/.dotfiles"; export DOTPATH
+fi
+
+DOT_TARBALL="https://github.com/wasabi315/dotfiles/tarball/master"
+REMOTE_URL="git@github.com:wasabi315/dotfiles.git"
 
 dotfiles_download() {
     e_newline
     e_header "Downloading dotfiles..."
 
+    if [ -d ${DOTPATH} ]; then
+        e_error "$DOTPATH: already exists."
+        exit 1
+    fi
+
     mkdir ${DOTPATH}
 
     if has "git"; then
-        git clone --recursive "${REMOTE_URL}" "${DOTPATH}"
+        git clone "${REMOTE_URL}" "${DOTPATH}"
     else
         wget -qO ${HOME}/dotfiles.tar.gz ${DOT_TARBALL}
         tar -xzvf ${HOME}/dotfiles.tar.gz -C ${DOTPATH}
@@ -49,6 +57,8 @@ dotfiles_download() {
 dotfiles_deploy() {
     e_newline
     e_header "Deploying dotfiles..."
+
+    cd ${DOTPATH}
 
     make deploy
 

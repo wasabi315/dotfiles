@@ -57,6 +57,7 @@ set ttimeoutlen=50
 
 " Colors ---------------------------------------------------------------------
 set termguicolors
+set background=dark
 colorscheme iceberg
 
 

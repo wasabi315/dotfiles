@@ -1,15 +1,12 @@
 configuration {
-    modi: "combi,system:rofi_system_menu.sh,run,ssh";
-    combi-modi: "window,drun";
-	combi-hide-mode-prefix: true;
-	fixed-num-lines: true;
-	hide-scrollbar: true;
-	sidebar-mode: true;
+    modi:                      "combi";
+    combi-modi:                "drun,system:rofi_system_menu.sh";
+	combi-hide-mode-prefix:    true;
 
-	theme: "mytheme";
-    lines: 10;
+	hide-scrollbar:    true;
+	theme:             "start";
 
-	kb-cancel: "Escape,Control+g,Control+bracketleft";
-	kb-mode-next: "Shift+Right,Control+Tab";
+	kb-cancel:        "Escape,Control+g,Control+bracketleft";
+	kb-mode-next:     "Shift+Right,Control+Tab";
 	kb-mode-previous: "Shift+Left,Control+ISO_Left_Tab";
 }
