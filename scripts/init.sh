@@ -1,62 +1,74 @@
 #!/bin/bash -eu
 
-packagelist=(
+pkgs=(
     # GUI
-    "lightdm"
-    "lightdm-gtk-greeter"
-    "xserver-xorg"
+    lightdm
+    lightdm-gtk-greeter
+    xserver-xorg
 
     # packages required by i3-gaps
-    "autoconf"
-    "libev-dev"
-    "libpango1.0-dev"
-    "libstartup-notification0-dev"
-    "libxcb-cursor-dev"
-    "libxcb-icccm4-dev"
-    "libxcb-keysyms1-dev"
-    "libxcb-randr0-dev"
-    "libxcb-util0-dev"
-    "libxcb-xinerama0-dev"
-    "libxcb-xkb-dev"
-    "libxcb1-dev"
-    "libxkbcommon-dev"
-    "libxkbcommon-x11-dev"
-    "libyajl-dev"
-    "xutils-dev"
+    autoconf
+    libev-dev
+    libpango1.0-dev
+    libstartup-notification0-dev
+    libxcb-cursor-dev
+    libxcb-icccm4-dev
+    libxcb-keysyms1-dev
+    libxcb-randr0-dev
+    libxcb-util0-dev
+    libxcb-xinerama0-dev
+    libxcb-xkb-dev
+    libxcb1-dev
+    libxkbcommon-dev
+    libxkbcommon-x11-dev
+    libyajl-dev
+    xutils-dev
 
     # packages required by termite
-    "libgtk-3-dev"
-    "g++"
-    "gtk-doc-tools"
-    "gnutls-bin"
-    "valac"
-    "intltool"
-    "libpcre2-dev"
-    "libglib3.0-cil-dev"
-    "libgnutls28-dev"
-    "libgirepository1.0-dev"
-    "libxml2-utils"
-    "gperf"
+    libgtk-3-dev
+    g++
+    gtk-doc-tools
+    gnutls-bin
+    valac
+    intltool
+    libpcre2-dev
+    libglib3.0-cil-dev
+    libgnutls28-dev
+    libgirepository1.0-dev
+    libxml2-utils
+    gperf
 
     # tools
-    "build-essntial"
-    "cmake"
-    "git"
-    "python3-pip"
-    "x11-utils"
+    build-essntial
+    cmake
+    git
+    python3-pip
+    x11-utils
 
     # applications
-    "feh"
-    "firefox"
-    "neovim"
-    "ranger"
-    "rofi"
-)
+    dunst
+    feh
+    firefox
+    neovim
+    ranger
+    rofi
+    tty-clock
+    )
+
+vmware_pkgs=(
+    open-vm-tools
+    open-vm-tools-desktop
+    )
 
 echo 'start installing apps...'
 echo ' '
 
-sudo apt update && sudo apt upgrade && sudo apt dist-upgrade
+sudo apt update && sudo apt -y upgrade && sudo apt -y dist-upgrade
+sudo apt install -y ${pkgs[@]}
+
+if [ -n "${ON_VMWARE}" ]; then
+    sudo apt install -y ${vmware_pkgs[@]}
+fi
 
 mkdir -p ~/repos
 
