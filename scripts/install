@@ -22,6 +22,12 @@ e_done() {
     printf " \033[37;1m%s\033[m\n" "Done..."
 }
 
+on_vmware() {
+    if [[ `lspci | grep 'VMware'` ]]; then
+        ON_VMWARE=true;
+    fi
+}
+
 
 # Dotfiles ---------------------------------------------------------------
 
@@ -36,7 +42,7 @@ dotfiles_download() {
     e_newline
     e_header "Downloading dotfiles..."
 
-    if [ -d ${DOTPATH} ]; then
+    if [ -d "${DOTPATH}" ]; then
         e_error "$DOTPATH: already exists."
         exit 1
     fi
