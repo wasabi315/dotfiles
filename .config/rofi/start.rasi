@@ -2,10 +2,11 @@
     font:              "Iosevka Term 18";
 
     background-color:  transparent;
-    base-color:        #252525D8;
-    inputbar-color:    #606060C3;
-    text-color:        #808080;
-    text-selected:     #FFFFFF;
+    base-color:        #282828D8;
+    inputbar-color:    #838596C8;
+    prompt-color:      #3D425B;
+    text-color:        #818596;
+    text-selected:     #D4D5DB;
     transparent:       #00000000;
 }
 
@@ -31,7 +32,6 @@ inputbar {
     border-radius:     8px;
     children:          [ textbox-prompt-colon,entry ];
     padding:           5px;
-    text-color:        @text-selected;
 }
 
 message {
@@ -64,13 +64,13 @@ button.selected {
 }
 
 entry {
-    text-color:  @text-selected;
+    text-color:  #0F1117BB;
 }
 
 textbox-prompt-colon {
     expand:      false;
     margin:      0px 0.3000em 0.0000em 0.0000em;
     str:         "  ";
-    text-color:  @text-color;
+    text-color:  @prompt-color;
 }
 
