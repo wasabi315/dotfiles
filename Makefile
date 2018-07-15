@@ -5,7 +5,7 @@ DOTFILES        := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
 DOTCONFDOTFILES := $(wildcard .config/*)
 
 
-all: deploy init
+all:
 
 deploy:
 	@$(foreach val, $(DOTFILES),        ln -snvf $(abspath $(val)) $(HOME)/$(val);)
