@@ -1,17 +1,24 @@
-#!/bin/bash
+#!/bin/bash -eu
 
 # utilities -------------------------------------------------------------------
 
-tbold=$(tput bold)
-tclose=$(tput sgr0)
-tred=$(tput setaf 1)
-tgreen=$(tput setaf 2)
-tyellow=$(tput setaf 3)
-tblue=$(tput setaf 4)
-tpurple=$(tput setaf 5)
-tcyan=$(tput setaf 6)
-tgray=$(tput setaf 7)
+tbold="$(tput bold)"
+tclose="$(tput sgr0)"
+tred="$(tput setaf 1)"
+tgreen="$(tput setaf 2)"
+tyellow="$(tput setaf 3)"
+tblue="$(tput setaf 4)"
+tpurple="$(tput setaf 5)"
+tcyan="$(tput setaf 6)"
+tgray="$(tput setaf 7)"
 
+e_header() {
+    printf "\n${tgray}$1${tclose}\n"
+}
+
+e_done() {
+    printf "\n${tgreen}Done${tclose}"
+}
 
 # dotfiles --------------------------------------------------------------------
 
@@ -19,10 +26,13 @@ if [ -z "${DOTPATH:-}" ]; then
     DOTPATH="${HOME}/.dotfiles"; export DOTPATH
 fi
 
-help() {
+source ${DOTPATH}/bin/deploy.sh
+source ${DOTPATH}/bin/init.sh
+
+usage() {
 
     local name=`basename $0`
-    cat <<EOF
+    cat <<USAGE
 Usage:
   $name <command>
 
@@ -41,14 +51,14 @@ Commands:
 
   ${tbold}clean${tclose}:   remove dotfiles and restore to your original settings.
 
-  ${tbold}help${tclose}:    print help (this message).
+  ${tbold}usage${tclose}:    print help (this message).
 
 
 For more information see: ${tbold}https://github.com/wasabi315/dotfiles${tclose}
                Copyright: ${tbold}(c) 2018 wasabi315${tclose}
                 Lincence: ${tbold}MIT${tclose}
 
-EOF
+USAGE
 
 }
 
@@ -56,7 +66,7 @@ EOF
 deploy() {
 
     e_header "Deploying dotfiles..."
-    bash ${DOTPATH}/scripts/deploy.sh
+    deploy_dotfiles
     e_done
 
 }
@@ -65,7 +75,7 @@ deploy() {
 init() {
 
     e_header "Install software packages..."
-    bash ${DOTPATH}/scripts/init.sh
+    init_dotfiles
     e_done
 
 }
@@ -129,7 +139,7 @@ case $command in
         clean
         ;;
     *)
-        help
+        usage
         ;;
 esac
 
