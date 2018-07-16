@@ -1,5 +1,7 @@
 #!/bin/bash -eu
 
+cd ${DOTPATH}
+
 install_apt-pkgs() {
 
     local readonly apt_pkgs=(
@@ -114,17 +116,29 @@ install_termite() {
 }
 
 
-dotfiles_init() {
+install_fonts() {
+
+    echo "undefined: install_font"
+
+}
+
+
+install_others() {
+
+    echo "undefined: install_others"
+
+}
+
+
+init_dotfiles() {
 
     install_apt-pkgs &&
-
     intall_i3-gaps &&
-
     install_termite &&
-
+    install_fonts &&
+    install_others &&
     pip3 install neovim
 
 }
 
-dotfiles_init
-
+init_dotfiles

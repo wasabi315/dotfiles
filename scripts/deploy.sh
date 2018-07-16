@@ -1,14 +1,22 @@
 #!/bin/bash -eu
 
-DOTPATH="${HOME}/.dotfiles"
-
 deploy_dotfiles() {
 
-    local candidate=( .??*  .config/*  bin )
+    cd ${DOTPATH}
+
+    local candidate=( .??* .config/* )
     local exclude=( .git  .config  .gitignore  .gitmodules )
 
     for f in "${candidate[@]}"; do
-        [[ `echo "${exclude}" | grep "${f}"` ]] || ln -snfv ${DOTPATH}/${f} ${HOME}/${f}
+        if [[ `echo "${exclude[@]}" | grep "${f}"` ]]; then
+            :
+        else
+            if [[ -e "${HOME}/${f}" ]] || [[ -d "${HOME}/${f}" ]]; then
+                mv ${HOME}/${f} ${BACKUP_PATH}/${f}
+                echo "[BACKED UP] "
+            fi
+            ln -snfv ${DOTPATH}/${f} ${HOME}/${f}
+        fi
     done
 
 }

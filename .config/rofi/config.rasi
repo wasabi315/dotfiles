@@ -1,6 +1,6 @@
 configuration {
     modi:                      "combi";
-    combi-modi:                "drun,system:rofi_system_menu.sh";
+    combi-modi:                "drun,system:~/.config/rofi/rofi_system_menu.sh";
 	combi-hide-mode-prefix:    true;
 
 	hide-scrollbar:    true;

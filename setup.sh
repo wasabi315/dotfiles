@@ -1,5 +1,9 @@
 #!/bin/bash -eu
 
+has() {
+    type "$1" > /dev/null 2>&1
+}
+
 if [ -z "${DOTPATH:-}" ]; then
     DOTPATH="${HOME}/.dotfiles"; export DOTPATH
 fi
@@ -10,17 +14,17 @@ download_dotfiles() {
     local readonly git_tarball="https://github.com/wasabi315/dotfiles/tarball/master"
 
     if [ -d "${DOTPATH}" ]; then
-        e_error "ERROR: dotfiles is already installed on this system." >&2
+        echo "$(tput bold)$(tput setaf 1)ERROR: dotfiles is already installed on this system.$(tput sgr0)\n" >&2
         exit 1
     fi
 
-    echo "$(tput setaf 2)This will download dotfiles to ~/.dotfiles directory.$(tput sgr0)"
-    echo "$(tput setaf 2)Continue? (y/n)$(tput sgr0): "
+    echo "$(tput setaf 1)This will download dotfiles to ~/.dotfiles directory.$(tput sgr0)\n"
+    echo "$(tput setaf 1)Continue? (y/n)$(tput sgr0): "
     read -r REPLY
     if [ "$REPLY" == Y ] || [ "$REPLY" = y ]; then
         echo "$(tput setaf 7)Downloading dotfiles...$(tput sgr0)"
     else
-        e_error "Process terminated by user."
+        echo "$(tput bold)$(tput setaf 7)Process terminated by user.$(tput sgr0)\n"
         exit 1
     fi
 
@@ -38,9 +42,17 @@ download_dotfiles() {
         rm ${HOME}/dotfiles.tar.gz
     fi
 
+    echo "$(tput bold)$(tput setaf 2)Done$(tput sgr0)\n"
+
+}
+
+enable_dotfiles() {
+
+    echo "undefined: enable_dotfiles"
+
+    mkdir -p ~/bin
+
 }
 
 download_dotfiles
-
-dotfiles usage
-
+enable_dotfiles

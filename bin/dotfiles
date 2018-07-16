@@ -13,12 +13,21 @@ tcyan="$(tput setaf 6)"
 tgray="$(tput setaf 7)"
 
 e_header() {
-    printf "\n${tgray}$1${tclose}\n"
+    printf "${tbold}${tgray}$1${tclose}\n"
 }
 
 e_done() {
-    printf "\n${tgreen}Done${tclose}"
+    printf "${tbold}${tgreen}Done${tclose}\n"
 }
+
+e_warning() {
+    printf "${tbold}${tyellow}$1${tclose}"
+}
+
+e_error() {
+    printf "${tbold}${tred}$1${tclose}"
+}
+
 
 # dotfiles --------------------------------------------------------------------
 
@@ -26,17 +35,28 @@ if [ -z "${DOTPATH:-}" ]; then
     DOTPATH="${HOME}/.dotfiles"; export DOTPATH
 fi
 
-source ${DOTPATH}/bin/deploy.sh
-source ${DOTPATH}/bin/init.sh
+if [ -z "${BACKUP_PATH:-}" ]; then
+    BACKUP_PATH="${DOTPATH}/backup"; export BACKUP_PATH
+fi
 
-usage() {
+
+help() {
 
     local name=`basename $0`
-    cat <<USAGE
+    local backups=(${BACKUP_PATH}/*)
+    local backup_info=()
+
+    if [ -z "${backups}" ]; then
+        backup_info="Nothing backed up"
+    else
+        backup_info="${backups[@]}"
+    fi
+
+    cat <<EOF
 Usage:
   $name <command>
 
-This dotfiles is for my personal Ubuntu 18.04 minimal environment.
+This dotfiles is for wasabi315's personal Ubuntu 18.04 minimal environment.
 
 Commands:
   ${tbold}deploy${tclose}:  back up your configs and symlink dotfiles to your home directory.
@@ -49,16 +69,20 @@ Commands:
 
   ${tbold}update${tclose}:  update dotfiles.
 
+  ${tbold}diff${tclose}:    show diffrences between your original setting and this dotfiles.
+
   ${tbold}clean${tclose}:   remove dotfiles and restore to your original settings.
 
-  ${tbold}usage${tclose}:    print help (this message).
+  ${tbold}help${tclose}:    print help (this message).
 
+Backed up files(dirs):
+  ${backup_info[@]}
 
 For more information see: ${tbold}https://github.com/wasabi315/dotfiles${tclose}
                Copyright: ${tbold}(c) 2018 wasabi315${tclose}
                 Lincence: ${tbold}MIT${tclose}
 
-USAGE
+EOF
 
 }
 
@@ -66,7 +90,7 @@ USAGE
 deploy() {
 
     e_header "Deploying dotfiles..."
-    deploy_dotfiles
+    ${DOTPATH}/scripts/deploy.sh
     e_done
 
 }
@@ -74,8 +98,8 @@ deploy() {
 
 init() {
 
-    e_header "Install software packages..."
-    init_dotfiles
+    e_header "Install softwares..."
+    ${DOTPATH}/scripts/init.sh
     e_done
 
 }
@@ -85,6 +109,12 @@ install() {
 
     deploy &&
     init
+
+}
+
+diff() {
+
+    echo "undefined: diff"
 
 }
 
@@ -99,6 +129,8 @@ update() {
 
 
 clean() {
+
+    echo "todo: restore original config"
 
     e_warning "WARNING: This will remove current dotfiles!!"
     e_warning "Continue? (y/n)"
@@ -115,12 +147,12 @@ clean() {
 }
 
 
-command=$1
-
 if [ $# -ne 1 ]; then
-    usage
+    help
     exit 1
 fi
+
+command=$1
 
 case $command in
     deploy)
@@ -132,6 +164,9 @@ case $command in
     install)
         install
         ;;
+    diff)
+        diff
+        ;;
     update)
         update
         ;;
@@ -139,7 +174,7 @@ case $command in
         clean
         ;;
     *)
-        usage
+        help
         ;;
 esac
 
