@@ -26,27 +26,27 @@ size_hints = false
 scrollbar = off
 
 [colors]
-foreground = #C6C8D1
-foreground_bold = #C6C8D1
+foreground = #544d40
+foreground_bold = #544d40
 
-background = rgba(30, 33, 33, 1.00)
+background = #faf8f4
 
-color0 =  #1E2132
-color1 =  #E27878
-color2 =  #B4BE82
-color3 =  #E2A478
-color4 =  #84A0C6
-color5 =  #A093C7
-color6 =  #89B8C2
-color7 =  #C6C8D1
-color8 =  #6B7089
-color9 =  #E98989
-color10 = #C0CA8E
-color11 = #E9B189
-color12 = #91ACD1
-color13 = #ADA0D3
-color14 = #95C4CE
-color15 = #D2D4DE
+color0  = #faf8f5
+color1  = #e3dcce
+color2  = #cdc4b1
+color3  = #b6ad9a
+color4  = #707a8f
+color5  = #b29762
+color6  = #896724
+color7  = #2d2006
+color8  = #9a7c42
+color9  = #728fcb
+color10 = #896724
+color11 = #544d40
+color12 = #063289
+color13 = #9a7c42
+color14 = #93abdc
+color15 = #b7c9eb
 
 [hints]
 #font = Monospace 12

@@ -1,9 +1,5 @@
 #!/bin/bash -eu
 
-has() {
-    type "$1" > /dev/null 2>&1
-}
-
 if [ -z "${DOTPATH:-}" ]; then
     DOTPATH="${HOME}/.dotfiles"; export DOTPATH
 fi
@@ -30,21 +26,14 @@ download_dotfiles() {
 
     mkdir ${DOTPATH}
 
-    if has "git"; then
-        git clone --recursive "${remote_url}" "${DOTPATH}"
-    else
-        if has "curl"; then
-            curl -fsSLo ${HOME}/dotfiles.tar.gz ${git_tarball}
-        else
-            wget -qO ${HOME}/dotfiles.tar.gz ${git_tarball}
-        fi
-        tar -xzvf ${HOME}/dotfiles.tar.gz -C ${DOTPATH}
-        rm ${HOME}/dotfiles.tar.gz
-    fi
+    wget -qO ${HOME}/dotfiles.tar.gz ${git_tarball}
+    tar -xzvf ${HOME}/dotfiles.tar.gz -C ${DOTPATH}
+    rm ${HOME}/dotfiles.tar.gz
 
     echo "$(tput bold)$(tput setaf 2)Done$(tput sgr0)\n"
 
 }
+
 
 enable_dotfiles() {
 

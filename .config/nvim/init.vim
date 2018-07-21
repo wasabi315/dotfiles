@@ -57,8 +57,9 @@ set ttimeoutlen=50
 
 " Colors ---------------------------------------------------------------------
 set termguicolors
-set background=dark
-colorscheme iceberg
+set background=light
+colorscheme Base2Tone_MorningLight
+highlight WildMenu guifg=#faf8f5 guibg=#93abdc
 
 
 " UI -------------------------------------------------------------------------

@@ -29,8 +29,8 @@ let g:airline#extensions#tabline#buffer_idx_format = {
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#enabled = 0
-let g:airline_theme = 'iceberg'
 let g:airline_powerline_fonts = 1
+let g:airline_theme='Base2Tone_MorningLight'
 
 
 " vim-better-whitespace --------------------------------------------------
@@ -51,8 +51,14 @@ function! Multiple_cursors_after()
 endfunction
 
 
-" tabbar -----------------------------------------------------------------
+" tagbar -----------------------------------------------------------------
 
 let g:tagbar_width = 40
 let g:tagbar_autoclose = 0
 
+
+" lightline.vim ----------------------------------------------------------
+
+let g:lightline = {
+    \ 'colorscheme': 'Base2Tone_Morning'
+    \ }

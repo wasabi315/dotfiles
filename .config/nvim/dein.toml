@@ -8,12 +8,6 @@ repo = 'Shougo/denite.nvim'
 repo = 'w0ng/vim-hybrid'
 
 [[plugins]]
-repo = 'vim-airline/vim-airline'
-
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
-
-[[plugins]]
 repo = 'tpope/vim-surround'
 
 [[plugins]]
@@ -61,4 +55,16 @@ repo = 'majutsushi/tagbar'
 repo = 'cocopon/iceberg.vim'
 
 [[plugins]]
-repo = 'chriskempson/base16-vim'
+repo = 'ayu-theme/ayu-vim'
+
+[[plugins]]
+repo = 'rakr/vim-two-firewatch'
+
+[[plugins]]
+repo = 'romainl/flattened'
+
+[[plugins]]
+repo = 'atelierbram/Base2Tone-vim'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'

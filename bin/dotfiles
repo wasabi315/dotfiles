@@ -1,36 +1,5 @@
 #!/bin/bash -eu
 
-# utilities -------------------------------------------------------------------
-
-tbold="$(tput bold)"
-tclose="$(tput sgr0)"
-tred="$(tput setaf 1)"
-tgreen="$(tput setaf 2)"
-tyellow="$(tput setaf 3)"
-tblue="$(tput setaf 4)"
-tpurple="$(tput setaf 5)"
-tcyan="$(tput setaf 6)"
-tgray="$(tput setaf 7)"
-
-e_header() {
-    printf "${tbold}${tgray}$1${tclose}\n"
-}
-
-e_done() {
-    printf "${tbold}${tgreen}Done${tclose}\n"
-}
-
-e_warning() {
-    printf "${tbold}${tyellow}$1${tclose}"
-}
-
-e_error() {
-    printf "${tbold}${tred}$1${tclose}"
-}
-
-
-# dotfiles --------------------------------------------------------------------
-
 if [ -z "${DOTPATH:-}" ]; then
     DOTPATH="${HOME}/.dotfiles"; export DOTPATH
 fi
@@ -38,6 +7,9 @@ fi
 if [ -z "${BACKUP_PATH:-}" ]; then
     BACKUP_PATH="${DOTPATH}/backup"; export BACKUP_PATH
 fi
+
+
+source "${DOTPATH}/lib/utils.sh"
 
 
 help() {
@@ -59,28 +31,26 @@ Usage:
 This dotfiles is for wasabi315's personal Ubuntu 18.04 minimal environment.
 
 Commands:
-  ${tbold}deploy${tclose}:  back up your configs and symlink dotfiles to your home directory.
+  ${BOLD}deploy${CLEAR}:  back up your configs and symlink dotfiles to your home directory.
            your configs backed up will locate in ${DOTPATH}/backup.
 
-  ${tbold}init${tclose}:    install software packages.
-           information for the package list: ${tbold}See https://github.com/wasabi315/dotfiles${tclose}
+  ${BOLD}init${CLEAR}:    install software packages.
+           information for the package list: ${BOLD} See https://github.com/wasabi315/dotfiles${CLEAR}
 
-  ${tbold}install${tclose}: symlink dotfiles to your home directory and install software packages.
+  ${BOLD}install${CLEAR}: symlink dotfiles to your home directory and install software packages.
 
-  ${tbold}update${tclose}:  update dotfiles.
+  ${BOLD}update${CLEAR}:  update dotfiles.
 
-  ${tbold}diff${tclose}:    show diffrences between your original setting and this dotfiles.
+  ${BOLD}clean${CLEAR}:   remove dotfiles and restore to your original settings.
 
-  ${tbold}clean${tclose}:   remove dotfiles and restore to your original settings.
-
-  ${tbold}help${tclose}:    print help (this message).
+  ${BOLD}help${CLEAR}:    print help (this message).
 
 Backed up files(dirs):
   ${backup_info[@]}
 
-For more information see: ${tbold}https://github.com/wasabi315/dotfiles${tclose}
-               Copyright: ${tbold}(c) 2018 wasabi315${tclose}
-                Lincence: ${tbold}MIT${tclose}
+For more information see: ${BOLD}https://github.com/wasabi315/dotfiles${CLEAR}
+               Copyright: ${BOLD}(c) 2018 wasabi315${CLEAR}
+                Lincence: ${BOLD}MIT${CLEAR}
 
 EOF
 
@@ -89,18 +59,18 @@ EOF
 
 deploy() {
 
-    e_header "Deploying dotfiles..."
+    running "Deploying dotfiles"
     ${DOTPATH}/scripts/deploy.sh
-    e_done
+    ok "Deploy"
 
 }
 
 
 init() {
 
-    e_header "Install softwares..."
+    running "Install softwares..."
     ${DOTPATH}/scripts/init.sh
-    e_done
+    ok "Initialize"
 
 }
 
@@ -112,18 +82,12 @@ install() {
 
 }
 
-diff() {
-
-    echo "undefined: diff"
-
-}
-
 
 update() {
 
-    e_header "Updating dotfiles..."
+    running "Updating dotfiles..."
     git pull origin master
-    e_done
+    ok
 
 }
 
@@ -132,11 +96,11 @@ clean() {
 
     echo "todo: restore original config"
 
-    e_warning "WARNING: This will remove current dotfiles!!"
-    e_warning "Continue? (y/n)"
+    warn "WARNING: This will remove current dotfiles!!"
+    warn "Continue? (y/n)"
     read -r REPLY
     if [ "$REPLY" == Y ] || [ "$REPLY" = y ]; then
-        e_header "Cleaning dotfiles..."
+        running "Cleaning dotfiles..."
         bash ${DOTPATH}/scripts/clean.sh
     else
         echo "abort."
@@ -163,9 +127,6 @@ case $command in
         ;;
     install)
         install
-        ;;
-    diff)
-        diff
         ;;
     update)
         update
