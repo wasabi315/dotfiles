@@ -1,9 +1,12 @@
-" ~/.config/nvim/init.vim
-" ========================================================================
-" - https://github.com/wasabi315/dotfiles
-" - wasabi.nvim.st@gmail.com
+" File       : init.vim (https://github.com/wasabi315/dotfiles)
+" Maintainer : wasabi315
+" License    : MIT
+"
+" Neovim config file
+"
 
 " dein scripts -----------------------------------------------------------
+
 if &compatible
     set nocompatible
 endif
@@ -57,9 +60,8 @@ set ttimeoutlen=50
 
 " Colors ---------------------------------------------------------------------
 set termguicolors
-set background=light
-colorscheme Base2Tone_MorningLight
-highlight WildMenu guifg=#faf8f5 guibg=#93abdc
+colorscheme snow
+set background=dark
 
 
 " UI -------------------------------------------------------------------------

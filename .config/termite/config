@@ -1,7 +1,8 @@
-# ~/.config/termite/config
-# ========================================================================
-# - https://github.com/wasabi315/dotfiles
-# - wasabi.nvim.st@gmail.com
+# File       : ~/.config/termite/config (https://github.com/wasabi315/dotfiles)
+# Maintainer : wasabi315
+# License    : MIT
+#
+
 
 [options]
 allow_bold = true
@@ -25,28 +26,30 @@ filter_unmatched_urls = true
 size_hints = false
 scrollbar = off
 
+
+# Based on snow colorscheme (https://github.com/nightsense/snow)
 [colors]
-foreground = #544d40
-foreground_bold = #544d40
+foreground = #95a5bd
+foreground_bold = #95a5bd
 
-background = #faf8f4
+background = #252d39
 
-color0  = #faf8f5
-color1  = #e3dcce
-color2  = #cdc4b1
-color3  = #b6ad9a
-color4  = #707a8f
-color5  = #b29762
-color6  = #896724
-color7  = #2d2006
-color8  = #9a7c42
-color9  = #728fcb
-color10 = #896724
-color11 = #544d40
-color12 = #063289
-color13 = #9a7c42
-color14 = #93abdc
-color15 = #b7c9eb
+color0  = #000002
+color1  = #c6837c
+color2  = #829d7a
+color3  = #a89266
+color4  = #7899c4
+color5  = #95638e
+color6  = #6c9f9d
+color7  = #728199
+color8  = #2c3747
+color9  = #c6837c
+color10 = #829d7a
+color11 = #a89266
+color12 = #7899c4
+color13 = #af8aa8
+color14 = #6c9f9d
+color15 = #95a5bd
 
 [hints]
 #font = Monospace 12

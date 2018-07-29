@@ -1,7 +1,9 @@
-# .bashrc for Ubuntu
-# ========================================================================
-# - https://github.com/wasabi315/dotfiles
-# - wasabi.nvim.st@gmail.com
+# File:       .bashrc (https://github.com/wasabi315/dotfiles)
+# Maintainer: wasabi315
+# License:    MIT
+#
+# wasabi315's .bashrc
+#
 
 
 # System default ---------------------------------------------------------
@@ -83,7 +85,7 @@ if [ -e ~/.git-prompt.sh ]; then
     export GIT_PS1_SHOWUNTRACKEDFILES=1
     export GIT_PS1_SHOWUPSTREAM=1
 
-    PS1='\[\e[1;34m\][ \w\[\e[1;35m\]$(__git_ps1)\[\e[m\]\[\e[1;34m\] ]\[\e[m\]\n\[\e[1;32m\]\A\[\e[m\] \$ '
+    PS1='\[\e[1;34m\][ \w\[\e[1;33m\]$(__git_ps1)\[\e[m\]\[\e[1;34m\] ]\[\e[m\]\n\[\e[1;35m\]\A\[\e[m\] \$ '
 else
     PS1='\[\e[1;34m\][ \w ]\[\e[m\]\n\[\e[1;32m\]\A\[\e[m\] \$ '
 fi

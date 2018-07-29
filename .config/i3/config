@@ -1,7 +1,11 @@
-# i3 config file
+#
+# File:         ~/.config/i3/config
+# Manintainer:  wasabi315
+# License:      MIT
+#
 
 
-# variables -------------------------------------------------------------------
+# variables ---------------------------------------------------------------
 
 set $fg            #5B6389
 set $fg-focused    #CCD1E6
@@ -37,7 +41,7 @@ set $terminal termite
 
 exec --no-startup-id ~/.fehbg
 
-exec_always --no-startup-id compton -bc
+exec_always --no-startup-id compton
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 
@@ -49,6 +53,8 @@ focus_on_window_activation urgent
 default_orientation auto
 workspace_layout default
 new_window none
+smart_borders yes
+show_marks yes
 
 
 # GUI settings ----------------------------------------------------------------
@@ -66,8 +72,6 @@ client.background       $bg
 
 font pango: Iosevka Term 15
 
-for_window [class="^.*"] border pixel 0
-
 for_window [window_role="pop-up"]      floating enable
 for_window [window_role="bubble"]      floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -78,6 +82,9 @@ for_window [window_type="menu"]   floating enable
 
 no_focus [window_role="pop-up"]
 
+floating_minimum_size 75 x 50
+floating_maximum_size -1 x -1
+
 # key bindings ----------------------------------------------------------------
 
 floating_modifier $mod
@@ -86,7 +93,7 @@ bindsym $mod+Return exec $terminal
 
 bindsym $mod+Shift+q kill
 
-bindsym $mod+d exec ~/.config/rofi/rofi.sh
+bindsym $mod+d exec rofi -show combi
 
 bindsym $mod+$up    focus up
 bindsym $mod+$down  focus down
@@ -156,6 +163,7 @@ mode "resize" {
 bindsym $mod+s split vertical
 bindsym $mod+Shift+s split horizontal
 bindsym $mod+t split toggle
+
 
 # assign ----------------------------------------------------------------------
 

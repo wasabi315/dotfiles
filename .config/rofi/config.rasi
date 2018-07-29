@@ -1,10 +1,20 @@
+/*
+
+File:        ~/.config/rofi/config.rasi
+Maintainer:  wasabi315
+Modified:    2018-7-23
+License:     MIT
+
+*/
+
+
 configuration {
     modi:                      "combi";
     combi-modi:                "drun,system:~/.config/rofi/rofi_system_menu.sh";
 	combi-hide-mode-prefix:    true;
 
 	hide-scrollbar:    true;
-	theme:             "start";
+	theme:             "mytheme";
 
 	kb-cancel:        "Escape,Control+g,Control+bracketleft";
 	kb-mode-next:     "Shift+Right,Control+Tab";

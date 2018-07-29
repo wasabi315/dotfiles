@@ -1,0 +1,54 @@
+configuration {
+}
+
+* {
+    foreground: #896724;
+    background: #faf8f5;
+    font:       "Iosevka Term 12";
+}
+
+window {
+    location: center;
+    anchor:   center;
+    padding:  10px;
+    border:   0px;
+    spacing:  0;
+    children: [ mainbox ];
+}
+
+mainbox {
+    spacing:  0;
+    children: [ inputbar, message, listview ];
+}
+
+message {
+    font: "Iosevka Term Light 12";
+}
+
+imputbar {
+    padding:  10px;
+    children: [ prompt, textbox-prompt-colon, entry ];
+}
+
+prompt {
+    font: "Iosevka Term 12";
+}
+
+textbox-prompt-colon {
+    expand:  false;
+    str: ":";
+}
+
+entry {
+    font: "Iosevka Term 12";
+}
+
+listview {
+    padding: 8px;
+    lines: 8;
+    columns: 3;
+}
+
+element {
+    font: inherit;
+}

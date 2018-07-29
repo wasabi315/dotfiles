@@ -1,9 +1,12 @@
-; ~/.config/polybar/config
+; File:        ~/.config/polybar/config (https://github.com/wasabi315/dotfiles)
+; Maintainer:  wasabi315
+; License:     MIT
+;
 
 [colors]
-background =       #CCFAF8F5
-foreground =       #544d40
-foreground-alt =   #544d40
+background =       #d5141420
+foreground =       #95a5bd
+foreground-alt =   #95a5bd
 primary =          #ffb52a
 secondary =        #e60053
 alert =            #E4AA80
@@ -71,9 +74,9 @@ label-mode-background = ${colors.primary}
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
 label-focused-background = ${colors.background}
-label-focused-underline = #728fcb
+label-focused-underline = #95a5bd
 label-focused-padding = 2
-label-focused-foreground = #728fcb
+label-focused-foreground = #95a5bd
 label-focused-font = 1
 
 ; unfocused = Inactive workspace on any monitor
@@ -91,7 +94,7 @@ label-visible-font = 1
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon%
 label-urgent-background = ${colors.background}
-label-urgent-foreground = #F07178
+label-urgent-foreground = #95a5bd
 label-urgent-padding = 2
 lable-urgent-font = 1
 
