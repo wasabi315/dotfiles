@@ -31,10 +31,9 @@ scrollbar = off
 [colors]
 foreground = #95a5bd
 foreground_bold = #95a5bd
-
 background = #252d39
 
-color0  = #000002
+color0  = #2c3747
 color1  = #c6837c
 color2  = #829d7a
 color3  = #a89266
@@ -62,4 +61,4 @@ color15 = #95a5bd
 #border_width = 0.5
 #roundness = 2.0
 
-# vim: ft=dosini cms=#%s
+# vim: ft=dosini
