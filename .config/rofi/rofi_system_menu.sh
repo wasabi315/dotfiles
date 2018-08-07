@@ -7,14 +7,17 @@
 # License:     MIT
 #
 
-suspend="Suspend"
-reboot="Reboot"
-shutdown="Shutdown"
+logout=" Logout"
+suspend=" Suspend"
+reboot=" Reboot"
+shutdown=" Shutdown"
 
-content="$suspend\n$reboot\n$shutdown"
+content="$logout\n$suspend\n$reboot\n$shutdown"
 
 echo -e $content
 case $@ in
+    $logout)
+        i3-msg exit ;;
     $suspend)
         systemctl suspend ;;
     $reboot)

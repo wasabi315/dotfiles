@@ -1,5 +1,7 @@
 #!/bin/bash -eu
 
+DOTPATH="/home/satoshi/.dotfiles"
+
 deploy_dotfiles() {
 
     cd ${DOTPATH}
@@ -11,10 +13,6 @@ deploy_dotfiles() {
         if [[ `echo "${exclude[@]}" | grep "${f}"` ]]; then
             :
         else
-            if [[ -e "${HOME}/${f}" ]] || [[ -d "${HOME}/${f}" ]]; then
-                mv ${HOME}/${f} ${BACKUP_PATH}/${f}
-                echo "[BACKED UP] "
-            fi
             ln -snfv ${DOTPATH}/${f} ${HOME}/${f}
         fi
     done

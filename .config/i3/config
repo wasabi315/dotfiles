@@ -5,7 +5,7 @@
 #
 
 
-# variables ---------------------------------------------------------------
+# variables -------------------------------------------------------------------
 
 set $fg            #5B6389
 set $fg-focused    #CCD1E6
@@ -93,7 +93,7 @@ bindsym $mod+Return exec $terminal
 
 bindsym $mod+Shift+q kill
 
-bindsym $mod+d exec rofi -show combi
+bindsym $mod+d exec rofi -show drun -no-show-match
 
 bindsym $mod+$up    focus up
 bindsym $mod+$down  focus down
@@ -169,7 +169,6 @@ bindsym $mod+t split toggle
 
 assign [class="Termite"]        $ws1
 assign [class="Firefox"]        $ws2
-assign [title="ranger"]         $ws4
-assign [class="GravitDesigner"] $ws5
-for_window [class="Spotify"] move to workspace $ws6, workspace --no-auto-back-and-forth $ws6
+assign [class="GravitDesigner"] $ws3
+for_window [class="Spotify"] move to workspace $ws6, workspace --no-auto-back-and-forth $ws5
 
