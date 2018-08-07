@@ -1,3 +1,4 @@
+;
 ; File:        ~/.config/polybar/config (https://github.com/wasabi315/dotfiles)
 ; Maintainer:  wasabi315
 ; License:     MIT
@@ -14,7 +15,7 @@ alert =            #E4AA80
 [bar/top]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 27
+height = 30
 offset-x = 0%
 offset-y = 0%
 radius = 0
@@ -23,26 +24,24 @@ fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
+line-size = 2
 line-color = #f00
 
 border-size = 0
 border-color = #BB222222
 
 padding-left = 0
-padding-right = 0
+padding-right = 1
 
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Iosevka Term:size=16:style=Normal:antialias=true;1
-font-1 = fixed:pixelsize=10;1
-font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-3 = siji:pixelsize=10;1
+font-0 = Iosevka Term SS05:size=11:style=Normal:antialias=true;1
+font-1 = SauceCodePro Nerd Font:size=13:style=Normal:antialias=true;2
 
 modules-left = i3
 modules-center =
-modules-right = volume memory cpu date
+modules-right = memory cpu date
 
 tray-position = right
 tray-padding = 0
@@ -63,9 +62,12 @@ format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-default = " "
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-default = ""
 
 label-mode-padding = 1
 label-mode-foreground = ${colors.foreground}
@@ -125,7 +127,7 @@ time-alt = %H:%M:%S
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 
-label = %date% %time%
+label = %time%
 
 [module/volume]
 type = internal/volume
