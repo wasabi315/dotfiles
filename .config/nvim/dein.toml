@@ -53,3 +53,9 @@ repo = 'itchyny/lightline.vim'
 
 [[plugins]]
 repo = 'nightsense/snow'
+
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+
+[[plugins]]
+repo = 'arcticicestudio/nord-vim'

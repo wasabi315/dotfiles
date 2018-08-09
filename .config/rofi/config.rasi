@@ -20,6 +20,6 @@ configuration {
     sidebar-mode: true;
 
 	kb-cancel:        "Escape,Control+g,Control+bracketleft";
-	kb-mode-next:     "Shift+Right,Control+Tab";
-	kb-mode-previous: "Shift+Left,Control+ISO_Left_Tab";
+	kb-mode-next:     "Control+semicolon";
+	kb-mode-previous: "Control+colon";
 }

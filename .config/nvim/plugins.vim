@@ -39,5 +39,6 @@ let g:tagbar_autoclose = 0
 " lightline.vim ----------------------------------------------------------
 
 let g:lightline = {
-    \ 'colorscheme': 'snow_dark',
+    \ 'colorscheme': 'nord',
     \ }
+

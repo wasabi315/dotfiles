@@ -93,7 +93,7 @@ bindsym $mod+Return exec $terminal
 
 bindsym $mod+Shift+q kill
 
-bindsym $mod+d exec rofi -show drun -no-show-match
+bindsym Control+semicolon exec rofi -show drun -no-show-match
 
 bindsym $mod+$up    focus up
 bindsym $mod+$down  focus down

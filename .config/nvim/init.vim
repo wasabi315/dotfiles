@@ -55,14 +55,14 @@ set hidden
 set mouse=
 set noswapfile
 set nobackup
-set ttimeoutlen=50
+set ttimeoutlen=0
 
 
 " Colors ---------------------------------------------------------------------
 set termguicolors
-colorscheme snow
+colorscheme nord
 set background=dark
-
+let g:nord_comment_brightness = 20
 
 " UI -------------------------------------------------------------------------
 set cursorline
@@ -74,7 +74,7 @@ set showmatch
 set wildmenu
 
 
-" Indent and Spacing -------------------------------------------------------------
+" Indent and Spacing ----------------------------------------------------------
 set autoindent
 set expandtab
 set shiftwidth=4
@@ -82,7 +82,7 @@ set smartindent
 set tabstop=4
 
 
-" Searching ---------------------------------------------------------------------
+" Searching -------------------------------------------------------------------
 set hlsearch
 set ignorecase
 set incsearch

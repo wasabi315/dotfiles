@@ -9,7 +9,7 @@ allow_bold = true
 audible_bell = false
 clickable_url = false
 dynamic_title = true
-font = Iosevka Term SS05 18
+font = Iosevka Term SS05 15
 fullscreen = true
 icon_name = terminal
 mouse_autohide = true
@@ -29,26 +29,26 @@ scrollbar = off
 
 # Based on snow colorscheme (https://github.com/nightsense/snow)
 [colors]
-foreground = #95a5bd
-foreground_bold = #95a5bd
-background = #252d39
+foreground = #d8dee9
+foreground_bold = #d8dee9
+background = #2e3440
 
-color0  = #2c3747
-color1  = #c6837c
-color2  = #829d7a
-color3  = #a89266
-color4  = #7899c4
-color5  = #95638e
-color6  = #6c9f9d
-color7  = #728199
-color8  = #2c3747
-color9  = #c6837c
-color10 = #829d7a
-color11 = #a89266
-color12 = #7899c4
-color13 = #af8aa8
-color14 = #6c9f9d
-color15 = #95a5bd
+color0  = #3b4252
+color1  = #bf616a
+color2  = #a3be8c
+color3  = #ebcb8b
+color4  = #81a1c1
+color5  = #b48ead
+color6  = #88c0d0
+color7  = #e5e9f0
+color8  = #4c566a
+color9  = #bf616a
+color10 = #a3be8c
+color11 = #ebcb8b
+color12 = #81a1c1
+color13 = #b48ead
+color14 = #8fbcbb
+color15 = #eceff4
 
 [hints]
 #font = Monospace 12
