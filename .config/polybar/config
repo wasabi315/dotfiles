@@ -5,7 +5,7 @@
 ;
 
 [colors]
-background =       #df2c3747
+background =       #d52c3747
 foreground =       #95a5bd
 foreground-alt =   #95a5bd
 primary =          #ffb52a

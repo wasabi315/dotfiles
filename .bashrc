@@ -15,7 +15,6 @@ export PLATFORM=$(uname -s)
 shopt -s cdspell
 shopt -s checkwinsize
 shopt -s histappend
-shopt -s no_empty_cmd_completion
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
@@ -75,8 +74,9 @@ alias root='sudo su'
 
 color_prompt=yes
 
+source ~/.git-prompt.sh
+
 if [ -e ~/.git-prompt.sh ]; then
-    source ~/.git-prompt.sh
     source ~/.git-completion.bash
 
     export GIT_PS1_SHOWDIRTYSTATE=1
@@ -84,7 +84,7 @@ if [ -e ~/.git-prompt.sh ]; then
     export GIT_PS1_SHOWUNTRACKEDFILES=1
     export GIT_PS1_SHOWUPSTREAM=1
 
-    PS1='\[\e[1;34m\][ \w\[\e[1;33m\]$(__git_ps1)\[\e[m\]\[\e[1;34m\] ]\[\e[m\]\n\[\e[1;35m\]\A\[\e[m\] \$ '
+    PS1='\[\e[1;34m\][ \w\[\e[1;33m\]$(__git_ps1)\[\e[m\]\[\e[1;34m\] ]\[\e[m\]\n\[\e[1;32m\]\A\[\e[m\] \$ '
 else
     PS1='\[\e[1;34m\][ \w ]\[\e[m\]\n\[\e[1;32m\]\A\[\e[m\] \$ '
 fi
