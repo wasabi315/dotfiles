@@ -5,12 +5,12 @@
 ;
 
 [colors]
-background =       #d52c3747
+background =       #161821
 foreground =       #95a5bd
-foreground-alt =   #95a5bd
-primary =          #ffb52a
+foreground-alt =   #4C566A
+primary =          #e27878
 secondary =        #e60053
-alert =            #E4AA80
+alert =            #E27878
 
 [bar/top]
 width = 100%
@@ -19,11 +19,12 @@ offset-x = 0%
 offset-y = 0%
 radius = 0
 fixed-center = true
+bottom = false
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 2
+line-size = 0
 line-color = #f00
 
 border-size = 0
@@ -35,12 +36,12 @@ padding-right = 1
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Iosevka Term SS05:size=13:style=Normal:antialias=true;2
-font-1 = SauceCodePro Nerd Font:size=13:style=Normal:antialias=true;1
+font-0 = Iosevka Term SS05:size=11:style=Bold:antialias=true;0
+font-1 = SauceCodePro Nerd Font:size=11:style=Normal:antialias=true;0
 
 modules-left = i3
-modules-center =
-modules-right = memory cpu date
+modules-center = date
+modules-right = memory cpu
 
 tray-position = right
 tray-padding = 0
@@ -75,9 +76,8 @@ label-mode-background = ${colors.primary}
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
 label-focused-background = ${colors.background}
-label-focused-underline = #95a5bd
 label-focused-padding = 2
-label-focused-foreground = #95a5bd
+label-focused-foreground = ${colors.foreground}
 label-focused-font = 1
 
 ; unfocused = Inactive workspace on any monitor
@@ -88,45 +88,37 @@ label-unfocused-font = 1
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon%
-label-visible-background = ${self.label-focused-background}
+label-visible-background = ${colors.background}
 label-visible-padding = 2
 label-visible-font = 1
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon%
 label-urgent-background = ${colors.background}
-label-urgent-foreground = #95a5bd
+label-urgent-foreground = ${colors.primary}
 label-urgent-padding = 2
 lable-urgent-font = 1
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "CPU:"
+format-prefix = ""
 format-prefix-foreground = ${colors.foreground-alt}
 label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "MEM:"
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 label = %percentage_used%%
 
 [module/date]
 type = internal/date
 interval = 5
-
-date = " %Y %m/%d"
-date-alt = " %Y-%m-%d"
-
+date = "%a,%b %d"
 time = %H:%M
-time-alt = %H:%M:%S
-
-format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
-
-label = %time%
+label = %date% %time%
 
 [module/volume]
 type = internal/volume

@@ -9,7 +9,7 @@
 
 set $fg            #5B6389
 set $fg-focused    #CCD1E6
-set $bg            #1E2132
+set $bg            #161821
 set $bg-focused    #2A3158
 set $urgent        #E27878
 
@@ -31,7 +31,7 @@ set $down  j
 set $left  h
 set $right l
 
-set $gaps_inner 15
+set $gaps_inner 10
 set $gaps_outer 0
 
 set $terminal termite
@@ -53,7 +53,6 @@ focus_on_window_activation urgent
 default_orientation auto
 workspace_layout default
 new_window none
-smart_borders yes
 show_marks yes
 
 
@@ -84,6 +83,8 @@ no_focus [window_role="pop-up"]
 
 floating_minimum_size 75 x 50
 floating_maximum_size -1 x -1
+
+for_window [class="^.*"] border pixel 3
 
 # key bindings ----------------------------------------------------------------
 

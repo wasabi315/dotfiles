@@ -39,6 +39,13 @@ let g:tagbar_autoclose = 0
 " lightline.vim ----------------------------------------------------------
 
 let g:lightline = {
-    \ 'colorscheme': 'nord',
+    \ 'colorscheme': 'iceberg',
+    \ }
+
+
+" LanguageClient-neovim --------------------------------------------------
+
+let g:LanguageClient_serverCommands = {
+    \ 'haskell': ['hie-wrapper']
     \ }
 

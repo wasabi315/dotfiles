@@ -1,8 +1,7 @@
+"
 " File       : init.vim (https://github.com/wasabi315/dotfiles)
 " Maintainer : wasabi315
 " License    : MIT
-"
-" Neovim config file
 "
 
 " dein scripts -----------------------------------------------------------
@@ -21,6 +20,11 @@ execute 'set runtimepath^=' . s:dein_repo_dir
 
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
+
+    call dein#add('autozimu/LanguageClient-neovim', {
+        \ 'rev': 'next',
+        \ 'build': 'bash install.sh',
+        \ })
 
     let s:toml_dir = expand('~/.config/nvim')
 
@@ -60,9 +64,10 @@ set ttimeoutlen=0
 
 " Colors ---------------------------------------------------------------------
 set termguicolors
-colorscheme nord
+colorscheme iceberg
 set background=dark
-let g:nord_comment_brightness = 20
+" let g:nord_comment_brightness = 20
+" highlight CursorLineNr guibg=#3b4252
 
 " UI -------------------------------------------------------------------------
 set cursorline

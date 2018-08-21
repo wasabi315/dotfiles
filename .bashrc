@@ -65,10 +65,8 @@ alias vi='nvim'
 alias mk='touch'
 alias mkdir='mkdir -p -v'
 
-alias scat='sudo cat'
 alias svi='sudo vi'
 alias root='sudo su'
-
 
 # Prompt -----------------------------------------------------------------
 
