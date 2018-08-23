@@ -27,7 +27,6 @@ size_hints = true
 scrollbar = off
 
 
-# Based on snow colorscheme (https://github.com/nightsense/snow)
 [colors]
 foreground = #d8dee9
 foreground_bold = #d8dee9

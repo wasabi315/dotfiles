@@ -1,0 +1,79 @@
+//
+// File       : ~/.config/rofi/start.rasi
+// Maintainer : wasabi315
+// License    : MIT
+//
+
+* {
+    background-color: transparent;
+    bg: #1e2132;
+    border-color: #53343b;
+    foreground: #818596;
+    foreground-selected: #6c9f9d;
+    inputbar-color: #272c42;
+    transparent: rgba(0,0,0,0);
+    font: "SauceCodePro Nerd Font 18";
+}
+
+#window {
+    height: 100%;
+    width: 600px;
+    location: east;
+    anchor: east;
+    border: 0px 0px 0px 18px;
+    text-color: @foreground;
+    background-color: @bg;
+    padding: 50px;
+}
+
+#sidebar {
+    padding: 0px;
+}
+
+#button {
+    text-color: @foreground;
+}
+
+#button selected {
+    text-color: @foreground-selected;
+}
+
+#inputbar {
+    background-color: @inputbar-color;
+    text-color: @foreground;
+    padding: 11px;
+    border: 0px 0px 0px 0px;
+    border-radius: 30px 30px 30px 30px;
+    children: [ textbox-prompt-colon, entry ];
+}
+
+#textbox-prompt-colon {
+    font: "SauceCodePro Nerd Font 11";
+    color: inherit;
+    expand: false;
+    str: "";
+    margin: 5px 0.5000em 0.0000em 0.5000em;
+}
+
+#entry {
+    text-font: inherit;
+    text-color: inherit;
+}
+#mainbox {
+    expand: true;
+    spacing: 70px;
+    children: [ inputbar, listview, sidebar ];
+}
+
+#listview {
+    padding: 0em 0em 0em 1em;
+    spacing: 30px;
+}
+
+#element {
+    color: @foreground;
+}
+
+#element selected  {
+    color: @foreground-selected;
+}

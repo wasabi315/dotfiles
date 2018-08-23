@@ -12,7 +12,7 @@ configuration {
     modi:                "drun,system:~/.config/rofi/rofi_system_menu.sh,ssh";
 
 	hide-scrollbar:    true;
-	theme:             "mytheme";
+	theme:             "start";
 
     show-icons:        true;
     drun-icon-theme:   "Numix-Circle";

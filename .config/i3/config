@@ -41,7 +41,7 @@ set $terminal termite
 
 exec --no-startup-id ~/.fehbg
 
-exec_always --no-startup-id compton
+exec_always --no-startup-id compton -b
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 
@@ -149,6 +149,7 @@ mode "command" {
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
+    bindsym Control+bracketleft mode "default"
 }
 
 mode "resize" {
@@ -159,6 +160,7 @@ mode "resize" {
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
+    bindsym Control+bracketleft mode "default"
 }
 
 bindsym $mod+s split vertical
@@ -169,8 +171,6 @@ bindsym $mod+t split toggle
 # assign ----------------------------------------------------------------------
 
 assign [class="Termite"]        $ws1
-assign [class="Firefox"]        $ws2
-assign [class="Google-chrome"]  $ws2
 assign [class="GravitDesigner"] $ws3
-for_window [class="Spotify"]    move to workspace $ws5, workspace --no-auto-back-and-forth $ws5
+for_window [class="Vivaldi-stable"] move to workspace $ws2
 
