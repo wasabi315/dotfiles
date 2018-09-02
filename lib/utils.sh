@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# shell script utilities
-
 CLEAR=$(tput sgr0)
 BOLD=$(tput bold)
 BLACK=${BOLD}$(tput setaf 0)
@@ -32,5 +30,9 @@ warn() {
 
 error() {
     echo -e "${RED}[ERROR]${CLEAR} $1"
+}
+
+err() {
+    echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $@" >&2
 }
 

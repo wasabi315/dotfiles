@@ -6,8 +6,15 @@ fi
 
 download_dotfiles() {
 
-    local readonly remote_url="https://github.com/wasabi315/dotfiles.git"
     local readonly git_tarball="https://github.com/wasabi315/dotfiles/tarball/master"
+
+    cat <<HEADER
+ ___   ___ _____ ___ ___ _    ___ ___
+|   \ / _ \_   _| __|_ _| |  | __/ __|
+| |) | (_) || | | _| | || |__| _|\___\\
+|___/ \___/ |_| |_| |___|____|___|___/ wasabi315's dotfiles
+
+HEADER
 
     if [ -d "${DOTPATH}" ]; then
         echo "$(tput bold)$(tput setaf 1)ERROR: dotfiles is already installed on this system.$(tput sgr0)\n" >&2
@@ -16,8 +23,8 @@ download_dotfiles() {
 
     echo "$(tput setaf 1)This will download dotfiles to ~/.dotfiles directory.$(tput sgr0)\n"
     echo "$(tput setaf 1)Continue? (y/n)$(tput sgr0): "
-    read -r REPLY
-    if [ "$REPLY" == Y ] || [ "$REPLY" = y ]; then
+    read -r -p "[Y|n]" response
+    if [[ $response =~ ^(yes|y|Y)]]; then
         echo "$(tput setaf 7)Downloading dotfiles...$(tput sgr0)"
     else
         echo "$(tput bold)$(tput setaf 7)Process terminated by user.$(tput sgr0)\n"
@@ -34,14 +41,5 @@ download_dotfiles() {
 
 }
 
-
-enable_dotfiles() {
-
-    echo "undefined: enable_dotfiles"
-
-    mkdir -p ~/bin
-
-}
-
 download_dotfiles
-enable_dotfiles
+

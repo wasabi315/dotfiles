@@ -1,21 +1,16 @@
 #!/bin/bash -eu
 
-DOTPATH="/home/satoshi/.dotfiles"
-
 deploy_dotfiles() {
 
-    cd ${DOTPATH}
+  cd ${DOTPATH}
 
-    local candidate=( .??* .config/* )
-    local exclude=( .git  .config  .gitignore  .gitmodules )
+  local candidate=( .??* .config/* bin/* )
+  local exclude=( .git  .config  .gitignore  .gitmodules )
 
-    for f in "${candidate[@]}"; do
-        if [[ `echo "${exclude[@]}" | grep "${f}"` ]]; then
-            :
-        else
-            ln -snfv ${DOTPATH}/${f} ${HOME}/${f}
-        fi
-    done
+  for f in "${candidate[@]}"; do
+      [[ $(echo "${exclude[@]}" | grep "${f}") ]] && continue
+      ln -snfv ${DOTPATH}/${f} ${HOME}/${f}
+  done
 
 }
 

@@ -1,6 +1,6 @@
 #!/bin/bash -eu
 
-cd ${DOTPATH}
+cd ${DOT_PATH}
 
 install_apt-pkgs() {
 
