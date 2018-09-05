@@ -56,8 +56,8 @@ alias ....='cd ../../..'
 alias cd=cdls
 
 function cdls() {
-    \cd $1;
-    ls;
+    \cd $1
+    ls
 }
 
 alias vi='nvim'
@@ -67,6 +67,13 @@ alias mkdir='mkdir -p -v'
 
 alias svi='sudo vi'
 alias root='sudo su'
+
+alias ghci=ghciClear
+
+function ghciClear() {
+    stack ghci
+    \clear
+}
 
 # Prompt -----------------------------------------------------------------
 

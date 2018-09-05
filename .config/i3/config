@@ -171,6 +171,6 @@ bindsym $mod+t split toggle
 # assign ----------------------------------------------------------------------
 
 assign [class="Termite"]        $ws1
+assign [class="Google-chrome"]  $ws2
 assign [class="GravitDesigner"] $ws3
-for_window [class="Vivaldi-stable"] move to workspace $ws2
 
