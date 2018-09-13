@@ -46,13 +46,10 @@ on_i = 1
 repo = 'tpope/vim-eunuch'
 
 [[plugins]]
-repo = 'majutsushi/tagbar'
-
-[[plugins]]
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
 repo = 'arcticicestudio/nord-vim'
 
 [[plugins]]
-repo = 'cocopon/iceberg.vim'
+repo = 'neovimhaskell/haskell-vim'

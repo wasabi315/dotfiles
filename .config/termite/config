@@ -9,7 +9,7 @@ allow_bold = true
 audible_bell = false
 clickable_url = false
 dynamic_title = true
-font = Iosevka Term SS05 14
+font = Iosevka Term SS09 14
 fullscreen = true
 icon_name = terminal
 mouse_autohide = true
@@ -26,28 +26,31 @@ filter_unmatched_urls = true
 size_hints = true
 scrollbar = off
 
-
+# nord-termite (https://github.com/arcticicestudio/nord-termite)
 [colors]
+cursor = #d8dee9
+cursor_foreground = #2e3440
+
 foreground = #d8dee9
 foreground_bold = #d8dee9
-background = #161821
+background = #2e3440
 
-color0  = #1e2132
-color1  = #e27878
-color2  = #b4be82
-color3  = #e2a478
-color4  = #84a0c6
-color5  = #a093c7
-color6  = #89b8c2
-color7  = #c6c8d1
-color8  = #6b7089
-color9  = #e98989
-color10 = #c0ca8e
-color11 = #e9b189
-color12 = #91acd1
-color13 = #ada0d3
-color14 = #95c4ce
-color15 = #d2d4de
+color0  = #3b4252
+color1  = #bf616a
+color2  = #a3be8c
+color3  = #ebcb8b
+color4  = #81a1c1
+color5  = #b48ead
+color6  = #88c0d0
+color7  = #e5e9f0
+color8  = #4c566a
+color9  = #bf616a
+color10 = #a3be8c
+color11 = #ebcb8b
+color12 = #81a1c1
+color13 = #b48ead
+color14 = #8fbcbb
+color15 = #eceff4
 
 [hints]
 #font = Monospace 12

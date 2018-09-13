@@ -64,10 +64,15 @@ set ttimeoutlen=0
 
 " Colors ---------------------------------------------------------------------
 set termguicolors
-colorscheme iceberg
-set background=dark
-" let g:nord_comment_brightness = 20
-" highlight CursorLineNr guibg=#3b4252
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
+let g:nord_comment_brightness = 15
+let g:nord_uniform_diff_background = 1
+let g:nord_cursor_line_number_background = 1
+colorscheme nord
+highlight Identifier guifg=#88C0D0
+highlight Type guifg=#88C0D0
+
 
 " UI -------------------------------------------------------------------------
 set cursorline

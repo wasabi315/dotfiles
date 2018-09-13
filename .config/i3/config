@@ -9,7 +9,7 @@
 
 set $fg            #5B6389
 set $fg-focused    #CCD1E6
-set $bg            #161821
+set $bg            #2E3440
 set $bg-focused    #2A3158
 set $urgent        #E27878
 
@@ -69,7 +69,7 @@ client.focused_inactive $bg      $bg         $fg   $bg        $bg
 client.urgent           $urgent  $urgent     $bg   $urgent    $urgent
 client.background       $bg
 
-font pango: Iosevka Term 15
+font pango: Iosevka Term SS05 15
 
 for_window [window_role="pop-up"]      floating enable
 for_window [window_role="bubble"]      floating enable
@@ -84,7 +84,7 @@ no_focus [window_role="pop-up"]
 floating_minimum_size 75 x 50
 floating_maximum_size -1 x -1
 
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 8
 
 # key bindings ----------------------------------------------------------------
 
