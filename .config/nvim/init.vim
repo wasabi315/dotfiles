@@ -70,8 +70,9 @@ let g:nord_comment_brightness = 15
 let g:nord_uniform_diff_background = 1
 let g:nord_cursor_line_number_background = 1
 colorscheme nord
-highlight Identifier guifg=#EBCB8B
+highlight Identifier guifg=#88C0D0
 highlight Type guifg=#88C0D0
+highlight MatchParen guifg=#D8DED9
 
 
 " UI -------------------------------------------------------------------------

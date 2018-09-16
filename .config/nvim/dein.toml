@@ -53,3 +53,6 @@ repo = 'arcticicestudio/nord-vim'
 
 [[plugins]]
 repo = 'neovimhaskell/haskell-vim'
+
+[[plugins]]
+repo = 'tyrannicaltoucan/vim-quantum'
