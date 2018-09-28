@@ -9,7 +9,7 @@
 
 set $fg            #5B6389
 set $fg-focused    #CCD1E6
-set $bg            #2E3440
+set $bg            #FAF8F5
 set $bg-focused    #2A3158
 set $urgent        #E27878
 
