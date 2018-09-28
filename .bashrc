@@ -89,7 +89,7 @@ if [ -e ~/.git-prompt.sh ]; then
     export GIT_PS1_SHOWUNTRACKEDFILES=1
     export GIT_PS1_SHOWUPSTREAM=1
 
-    PS1='\[\e[1;34m\][ \w\[\e[1;36m\]$(__git_ps1)\[\e[m\]\[\e[1;34m\] ]\[\e[m\]\n\[\e[1;33m\]\A\[\e[m\] \$ '
+    PS1='\[\e[1;34m\][ \w\[\e[1;33m\]$(__git_ps1)\[\e[m\]\[\e[1;34m\] ]\[\e[m\]\n\[\e[1;33m\]\A\[\e[m\] \$ '
 else
     PS1='\[\e[1;34m\][ \w ]\[\e[m\]\n\[\e[1;33m\]\A\[\e[m\] \$ '
 fi
