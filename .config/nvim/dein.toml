@@ -43,16 +43,10 @@ repo = 'Shougo/deoplete.nvim'
 on_i = 1
 
 [[plugins]]
-repo = 'tpope/vim-eunuch'
-
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-
-[[plugins]]
 repo = 'arcticicestudio/nord-vim'
 
 [[plugins]]
 repo = 'neovimhaskell/haskell-vim'
 
 [[plugins]]
-repo = 'tyrannicaltoucan/vim-quantum'
+repo = 'rakr/vim-two-firewatch'

@@ -64,25 +64,43 @@ set ttimeoutlen=0
 
 " Colors ---------------------------------------------------------------------
 set termguicolors
-let g:nord_italic = 1
-let g:nord_comment_brightness = 15
-let g:nord_uniform_diff_background = 1
-let g:nord_cursor_line_number_background = 1
-colorscheme nord
-highlight Identifier guifg=#88C0D0
-highlight Type guifg=#88C0D0
-highlight MatchParen guifg=#D8DED9
-
+let g:two_firewatch_italics=1
+colorscheme two-firewatch
+highlight MatchParen guibg=#b6ad9a
 
 " UI -------------------------------------------------------------------------
 set cursorline
 set history=1000
+set laststatus=2
 set number
 set noshowmode
 set ruler
 set showmatch
 set wildmenu
 
+let g:currentmode={
+    \ 'n' : 'NORMAL',
+    \ 'no' : 'NORMAL',
+    \ 'v' : 'VISUAL',
+    \ 'V' : 'V-LINE',
+    \ 'x22' : 'V-BLOCK',
+    \ 's' : 'SELECT',
+    \ 'S' : 'S-LINE',
+    \ 'x19' : 'S-BLOCK',
+    \ 'i' : 'INSERT',
+    \ 'R' : 'REPLACE',
+    \ 'Rv' : 'REPLACE',
+    \ 'c' : 'COMMAND',
+    \ 'cv' : 'Vim Ex',
+    \ 'ce' : 'Ex',
+    \ 'r' : 'PROMPT',
+    \ 'rm' : 'MORE',
+    \ 'r?' : 'COMFIRM',
+    \ '!' : 'SHELL',
+    \ 't' : 'TERMINAL',
+    \ }
+
+set statusline=[%{g:currentmode[mode()]}]\ %f%m%r%h%=%y\ [%{&fileencoding}]\ [%l/%L]
 
 " Indent and Spacing ----------------------------------------------------------
 set autoindent
@@ -91,11 +109,9 @@ set shiftwidth=4
 set smartindent
 set tabstop=4
 
-
 " Searching -------------------------------------------------------------------
 set hlsearch
 set ignorecase
 set incsearch
 set smartcase
 set wrapscan
-
