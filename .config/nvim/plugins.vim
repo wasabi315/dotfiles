@@ -29,20 +29,6 @@ function! Multiple_cursors_after()
     call deoplete#enable()
 endfunction
 
-
-" tagbar -----------------------------------------------------------------
-
-let g:tagbar_width = 40
-let g:tagbar_autoclose = 0
-
-
-" lightline.vim ----------------------------------------------------------
-
-let g:lightline = {
-    \ 'colorscheme': 'nord',
-    \ }
-
-
 " LanguageClient-neovim --------------------------------------------------
 
 let g:LanguageClient_serverCommands = {

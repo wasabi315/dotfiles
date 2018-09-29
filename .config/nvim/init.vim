@@ -68,6 +68,7 @@ let g:two_firewatch_italics=1
 colorscheme two-firewatch
 highlight MatchParen guibg=#B6AD9A
 highlight StatusLine guibg=#E5DDCB
+highlight User1 gui=bold guibg=#E5DDCB
 
 " UI -------------------------------------------------------------------------
 set cursorline
@@ -79,6 +80,7 @@ set ruler
 set showmatch
 set wildmenu
 
+" Status Line
 let g:currentmode={
     \ 'n'  : 'NORMAL',
     \ 'no' : 'NORMAL',
@@ -98,7 +100,13 @@ let g:currentmode={
     \ 't'  : 'TERMINAL',
     \ }
 
-set statusline=[%{g:currentmode[mode()]}]\ %f%m%r%h%=%y\ [%{&fileencoding}]\ [%l/%L]
+set statusline=%1*%-9([%{g:currentmode[mode()]}]%)%*
+set statusline+=\ %f
+set statusline+=\ %m%r%h
+set statusline+=%=
+set statusline+=%y
+set statusline+=\ [%{&fileencoding}]
+set statusline+=\ [%3l/%3L]
 
 " Indent and Spacing ----------------------------------------------------------
 set autoindent
