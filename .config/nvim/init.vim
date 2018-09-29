@@ -80,25 +80,22 @@ set showmatch
 set wildmenu
 
 let g:currentmode={
-    \ 'n' : 'NORMAL',
+    \ 'n'  : 'NORMAL',
     \ 'no' : 'NORMAL',
-    \ 'v' : 'VISUAL',
-    \ 'V' : 'V-LINE',
-    \ 'x22' : 'V-BLOCK',
-    \ 's' : 'SELECT',
-    \ 'S' : 'S-LINE',
-    \ 'x19' : 'S-BLOCK',
-    \ 'i' : 'INSERT',
-    \ 'R' : 'REPLACE',
+    \ 'v'  : 'VISUAL',
+    \ 'V'  : 'V-LINE',
+    \ '' : 'V-BLOCK',
+    \ 'i'  : 'INSERT',
+    \ 'R'  : 'REPLACE',
     \ 'Rv' : 'REPLACE',
-    \ 'c' : 'COMMAND',
-    \ 'cv' : 'Vim Ex',
-    \ 'ce' : 'Ex',
-    \ 'r' : 'PROMPT',
+    \ 'c'  : 'COMMAND',
+    \ 'cv' : 'VIM EX',
+    \ 'ce' : 'EX',
+    \ 'r'  : 'PROMPT',
     \ 'rm' : 'MORE',
     \ 'r?' : 'COMFIRM',
-    \ '!' : 'SHELL',
-    \ 't' : 'TERMINAL',
+    \ '!'  : 'SHELL',
+    \ 't'  : 'TERMINAL',
     \ }
 
 set statusline=[%{g:currentmode[mode()]}]\ %f%m%r%h%=%y\ [%{&fileencoding}]\ [%l/%L]
