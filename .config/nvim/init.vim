@@ -66,7 +66,8 @@ set ttimeoutlen=0
 set termguicolors
 let g:two_firewatch_italics=1
 colorscheme two-firewatch
-highlight MatchParen guibg=#b6ad9a
+highlight MatchParen guibg=#B6AD9A
+highlight StatusLine guibg=#E5DDCB
 
 " UI -------------------------------------------------------------------------
 set cursorline
