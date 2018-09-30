@@ -64,7 +64,6 @@ set ttimeoutlen=0
 
 " Colors ---------------------------------------------------------------------
 set termguicolors
-let g:two_firewatch_italics=1
 colorscheme two-firewatch
 highlight MatchParen guibg=#B6AD9A
 highlight StatusLine guibg=#E5DDCB
@@ -106,7 +105,7 @@ set statusline+=\ %m%r%h
 set statusline+=%=
 set statusline+=%y
 set statusline+=\ [%{&fileencoding}]
-set statusline+=\ [%3l/%3L]
+set statusline+=\ [%3v:%-3l]
 
 " Indent and Spacing ----------------------------------------------------------
 set autoindent
