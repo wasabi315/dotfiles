@@ -64,10 +64,14 @@ set ttimeoutlen=0
 
 " Colors ---------------------------------------------------------------------
 set termguicolors
-colorscheme two-firewatch
-highlight MatchParen guibg=#B6AD9A
-highlight StatusLine guibg=#E5DDCB
-highlight User1 gui=bold guibg=#E5DDCB
+let g:nord_italics = 1
+let g:nord_underline = 1
+let g:nord_comment_brightness = 15
+let g:nord_uniform_diff_background = 1
+let g:nord_cursor_line_number_background = 1
+colorscheme nord
+highlight Identifier guifg=#88c0d0
+highlight Type guifg=#88c0d0
 
 " UI -------------------------------------------------------------------------
 set cursorline
@@ -78,34 +82,6 @@ set noshowmode
 set ruler
 set showmatch
 set wildmenu
-
-" Status Line
-let g:currentmode={
-    \ 'n'  : 'NORMAL',
-    \ 'no' : 'NORMAL',
-    \ 'v'  : 'VISUAL',
-    \ 'V'  : 'V-LINE',
-    \ '' : 'V-BLOCK',
-    \ 'i'  : 'INSERT',
-    \ 'R'  : 'REPLACE',
-    \ 'Rv' : 'REPLACE',
-    \ 'c'  : 'COMMAND',
-    \ 'cv' : 'VIM EX',
-    \ 'ce' : 'EX',
-    \ 'r'  : 'PROMPT',
-    \ 'rm' : 'MORE',
-    \ 'r?' : 'COMFIRM',
-    \ '!'  : 'SHELL',
-    \ 't'  : 'TERMINAL',
-    \ }
-
-set statusline=%1*%-9([%{g:currentmode[mode()]}]%)%*
-set statusline+=\ %f
-set statusline+=\ %m%r%h
-set statusline+=%=
-set statusline+=%y
-set statusline+=\ [%{&fileencoding}]
-set statusline+=\ [%3v:%-3l]
 
 " Indent and Spacing ----------------------------------------------------------
 set autoindent

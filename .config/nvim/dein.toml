@@ -49,4 +49,4 @@ repo = 'arcticicestudio/nord-vim'
 repo = 'neovimhaskell/haskell-vim'
 
 [[plugins]]
-repo = 'rakr/vim-two-firewatch'
+repo = 'itchyny/lightline.vim'
