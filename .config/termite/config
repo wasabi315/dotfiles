@@ -26,28 +26,32 @@ filter_unmatched_urls = true
 size_hints = true
 scrollbar = off
 
-# nord-termite (https://github.com/arcticicestudio/nord-termite)
 [colors]
-foreground = #896724
-foreground_bold = #896724
-background = #faf8f5
+cursor = #d8dee9
+cursor_foreground = #2e3440
 
-color0  = #282c34
-color1  = #e06c75
-color2  = #43d08a
-color3  = #e0c285
-color4  = #718ecd
-color5  = #c678dd
-color6  = #56b6c2
-color7  = #dcdfe4
-color8  = #282c34
-color9  = #e06c75
-color10 = #43d08a
-color11 = #e0c285
-color12 = #718ecd
-color13 = #c678dd
-color14 = #56b6c2
-color15 = #dcdfe4
+foreground = #d8dee9
+foreground_bold = #d8dee9
+background = #2e3440
+
+highlight = #4c566a
+
+color0  = #3b4252
+color1  = #bf616a
+color2  = #a3be8c
+color3  = #ebcb8b
+color4  = #81a1c1
+color5  = #b48ead
+color6  = #88c0d0
+color7  = #e5e9f0
+color8  = #4c566a
+color9  = #bf616a
+color10 = #a3be8c
+color11 = #ebcb8b
+color12 = #81a1c1
+color13 = #b48ead
+color14 = #8fbcbb
+color15 = #eceff4
 
 [hints]
 #font = Monospace 12
