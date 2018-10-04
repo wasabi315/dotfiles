@@ -28,7 +28,7 @@ import           XMonad.Layout.Spacing
 
 -------------------------------------------------------------------------------
 
-main = xmonad =<< xmobar myConfig
+main = xmonad myConfig
 
 myConfig = desktopConfig
     { terminal            = myTerminal
@@ -61,7 +61,7 @@ myBorderWidth = 8
 
 myModMask = mod1Mask
 
-myWorkspaces = ["1: term", "2: web", "3: drawing"] ++ map show [4..9]
+myWorkspaces = map show [1..9]
 
 -------------------------------------------------------------------------------
 
