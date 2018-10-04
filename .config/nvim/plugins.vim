@@ -54,5 +54,12 @@ let g:haskell_indent_disable = 1
 
 let g:lightline = {
     \ 'colorscheme': 'nord',
+    \ 'active' : {
+    \   'left' : [ [ 'mode' ],
+    \              [ 'gitbranch', 'filename', 'readonly', 'modified' ] ]
+    \ },
+    \ 'component_function' : {
+    \   'gitbranch' : 'fugitive#head'
+    \ },
     \ }
 
