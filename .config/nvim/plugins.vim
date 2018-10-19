@@ -62,4 +62,3 @@ let g:lightline = {
     \   'gitbranch' : 'fugitive#head'
     \ },
     \ }
-

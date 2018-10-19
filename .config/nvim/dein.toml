@@ -52,7 +52,7 @@ repo = 'itchyny/lightline.vim'
 repo = 'justinmk/vim-dirvish'
 
 [[plugins]]
-repo = 'machakann/vim-sandwich'
+repo = 'tpope/vim-surround'
 
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
