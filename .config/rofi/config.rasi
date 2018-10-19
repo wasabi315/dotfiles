@@ -12,12 +12,10 @@ configuration {
     modi:                "drun,system:~/.config/rofi/rofi_system_menu.sh,ssh";
 
 	hide-scrollbar:    true;
-	theme:             "start";
-
-    show-icons:        true;
-    drun-icon-theme:   "Numix-Circle";
+	theme:             "mytheme";
 
     sidebar-mode: true;
+    lines: 8;
 
 	kb-cancel:        "Escape,Control+g,Control+bracketleft";
 	kb-mode-next:     "Control+semicolon";

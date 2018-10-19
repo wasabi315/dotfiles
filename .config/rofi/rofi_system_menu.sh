@@ -7,11 +7,11 @@
 # License:     MIT
 #
 
-lock=" Lock"
-logout=" Logout"
-suspend=" Suspend"
-reboot=" Reboot"
-shutdown=" Shutdown"
+lock="Lock"
+logout="Logout"
+suspend="Suspend"
+reboot="Reboot"
+shutdown="Shutdown"
 
 content="$lock\n$logout\n$suspend\n$reboot\n$shutdown"
 

@@ -1,113 +1,73 @@
-//
-// File:       ~/.config/rofi/mytheme.rasi
-// Maintainer: wasabi315
-// License:    MIT
-//
-
-configuration {
-    fullscreen: true;
-}
-
-
 * {
-    foreground:  #95a5bd;
-    foreground-selected:  #6c9f9d;
-    background-color:  transparent;
-    inputbar-color:    #72819933;
-    bg:                #141420f0;
-    transparent: rgba(0,0,0,0);
-    font: "SauceCodePro Nerd Font 18";
+    font: "M+ 1p medium 14";
+    text-color:                  #d8dee9;
+    background-color:            #3b4252;
+    lightbg:                     #4c566a;
+    red:                         #bf616a;
+    orange:                      #ebcb8b;
+    blue:                        #88c0d0;
+    foreground:                  #2e3440;
+    spacing:                     2;
 }
-
 #window {
-    location: center;
-    anchor:   center;
-    padding: 270px;
-    background-color: @bg;
-    spacing: 0;
-    children:  [ mainbox ];
-    orientation: horizontal;
+    border:     0;
+    text-color: @foreground;
+    background-color: rgba ( 0, 0, 0, 0 % );
+    padding:    25;
+    text-color: @bordercolor;
+    background-color: @background;
 }
-
 #mainbox {
-    spacing: 75px;
-    children: [ inputbar, message, horibox ];
+    border:  0;
+    padding: 0;
+    spacing: 5px;
 }
-
-#horibox {
-    spacing: 50px;
-    children: [ vertb, listview ];
-    orientation: horizontal;
-}
-
 #message {
-    padding: 5;
-    font: "SauceCodePro Nerd Font 11";
-    foreground-color: @lightgreen;
+    border:     1px dash 0px 0px ;
+    text-color: @separatorcolor;
+    padding:    2px 0px 0px ;
 }
-
-#inputbar {
-    color: @foreground;
-    padding: 11px;
-    background-color: @inputbar-color;
-    border-radius:  30px 30px 30px 30px;
-    children: [ textbox-prompt-colon, entry ];
+#textbox {
+    text-color: @foreground;
 }
-
-#textbox-prompt-colon {
-    font: "SauceCodePro Nerd Font 11";
-    color: inherit;
-    expand: false;
-    str: "";
-    margin: 5px 0.5000em 0.0000em 0.5000em;
-}
-
-#entry {
-    text-font: inherit;
-    text-color:inherit;
-}
-
 #listview {
-    padding: 0px;
-    dynamic: false;
-    spacing: 10px;
-    columns: 3;
+    fixed-height: 0;
+    border:       2px 0px 0px ;
+    padding:      2px 0px 0px ;
+    text-color: @separatorcolor;
+    spacing: 5px;
 }
-
 #element {
-    padding: 20px;
-    vertical-align: 0.5;
-    border-radius: 4px;
-    color: @foreground;
+    border:  0;
+    padding: 5px;
 }
-
 #element selected {
-    color: @foreground-selected;
+    background-color: @blue;
+    text-color: @foreground;
 }
-
-#vertb {
-    expand: false;
-    children: [ sidebar, dummy ];
+#element urgent {
+    text-color: @red;
 }
-#dummy {
-    expand: true;
+#element active {
+    text-color: @orange;
 }
-
 #sidebar {
-    expand: false;
-    orientation: vertical;
-    spacing: 15px;
-    border-color: @background-color;
-    border: 8px 30px 0px 30px;
+    border: 1px dash 0px 0px ;
 }
-
 #button {
-    padding: 10px;
-    color: @foreground;
-    horizontal-align: 0.5;
+    padding : 5px;
 }
-
 #button selected {
-    color: @foreground-selected;
+    background-color: @blue;
+    text-color: @foreground;
+}
+#inputbar {
+    spacing: 0;
+    children: [ prompt, textbox-prompt, entry ];
+}
+#textbox-prompt {
+    expand: false;
+    str: ":";
+    margin: 0px 0.3000em 0.0000em 0.0000em;
 }
 
