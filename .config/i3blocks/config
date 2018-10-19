@@ -1,0 +1,17 @@
+[uptime]
+label=
+command=uptime | sed 's/.*up \([^,]*\),.*/\1/'
+color=#d8dee9
+interval=60
+
+[memory]
+label=
+command=free -b | awk 'match($0, /^Mem/){print int($3 * 100 / $2)}'
+color=#d8dee9
+interval=1
+
+[time]
+label=
+command=date +'%m/%d %H:%M'
+color=#d8dee9
+interval=5

@@ -7,11 +7,11 @@
 
 # variables -------------------------------------------------------------------
 
-set $fg            #5B6389
-set $fg-focused    #CCD1E6
+set $fg            #D8DEE9
 set $bg            #2E3440
-set $bg-focused    #2A3158
-set $urgent        #E27878
+set $red           #BF616A
+set $blue          #88C0D0
+set $yellow        #EBCB8B
 
 set $ws1  "1"
 set $ws2  "2"
@@ -31,7 +31,7 @@ set $down  j
 set $left  h
 set $right l
 
-set $gaps_inner 27
+set $gaps_inner 25
 set $gaps_outer 0
 
 set $terminal termite
@@ -42,7 +42,6 @@ set $terminal termite
 exec --no-startup-id ~/.fehbg
 
 exec_always --no-startup-id compton -b
-exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 
 # general ---------------------------------------------------------------------
@@ -66,7 +65,7 @@ gaps outer $gaps_outer
 client.focused          $bg      $bg         $fg   $bg        $bg
 client.unfocused        $bg      $bg         $fg   $bg        $bg
 client.focused_inactive $bg      $bg         $fg   $bg        $bg
-client.urgent           $urgent  $urgent     $bg   $urgent    $urgent
+client.urgent           $red     $red        $bg   $red       $red
 client.background       $bg
 
 font pango: M+ 1mn medium 14
@@ -81,10 +80,30 @@ for_window [window_type="menu"]   floating enable
 
 no_focus [window_role="pop-up"]
 
-floating_minimum_size 75 x 50
-floating_maximum_size -1 x -1
-
 for_window [class="^.*"] border pixel 10
+
+bar {
+    status_command i3blocks
+    font pango:M+ 1p medium 12
+    position top
+    strip_workspace_numbers yes
+    separator_symbol " | "
+    binding_mode_indicator yes
+    tray_output none
+    tray_padding 0
+    colors {
+        background $bg
+        focused_background $bg
+        statusline $fg
+        focused_statusline $fg
+        separator $fg
+        focused_workspace $blue $blue $bg
+        active_workspace $bg $bg $fg
+        inactive_workspace $bg $bg $fg
+        urgent_workspace $red $red $bg
+        binding_mode $yellow $yellow $bg
+    }
+}
 
 # key bindings ----------------------------------------------------------------
 
