@@ -81,6 +81,7 @@ for_window [window_type="menu"]   floating enable
 no_focus [window_role="pop-up"]
 
 for_window [class="^.*"] border pixel 10
+for_window [class="Termite"] border pixel 25
 
 bar {
     status_command i3blocks
