@@ -108,5 +108,4 @@ eval "$(stack --bash-completion-script stack)"
 
 # AutoStart tmux ---------------------------------------------------------
 
-[ -z "$TMUX" ] && { tmux attach || exec tmux new-session && exit; }
 

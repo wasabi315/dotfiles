@@ -1,15 +1,15 @@
-EXCLUSIONS := .git .gitmodules .config
+EXCLUSIONS := .git .gitmodules .gitignore .config
 CANDIDATES := $(wildcard .??*) $(wildcard .config/*) $(wildcard bin/*)
 DOTFILES   := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
 DOTPATH    := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
 
-all:
-
-deploy:
-	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
+all: init deploy
 
 init:
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/scripts/init.sh
+
+deploy:
+	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
 
 update:
 	git pull origin master
