@@ -34,8 +34,6 @@ set $right l
 set $gaps_inner 25
 set $gaps_outer 0
 
-set $terminal termite
-
 
 # startup programs ------------------------------------------------------------
 
@@ -110,7 +108,7 @@ bar {
 
 floating_modifier $mod
 
-bindsym $mod+Return exec $terminal
+bindsym $mod+Return exec termite -e tmux
 
 bindsym $mod+Shift+q kill
 

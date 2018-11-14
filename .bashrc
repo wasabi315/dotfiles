@@ -106,6 +106,3 @@ fi
 
 eval "$(stack --bash-completion-script stack)"
 
-# AutoStart tmux ---------------------------------------------------------
-
-
