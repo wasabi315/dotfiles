@@ -185,6 +185,7 @@ bindsym $mod+s split vertical
 bindsym $mod+Shift+s split horizontal
 bindsym $mod+t split toggle
 
+bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
 
 # assign ----------------------------------------------------------------------
 
