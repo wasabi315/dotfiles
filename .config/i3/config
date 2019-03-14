@@ -39,8 +39,6 @@ set $gaps_outer 0
 
 exec --no-startup-id ~/.fehbg
 
-exec_always --no-startup-id compton -b
-
 
 # general ---------------------------------------------------------------------
 
@@ -83,7 +81,7 @@ for_window [class="Termite"] border pixel 25
 
 bar {
     status_command i3blocks
-    font pango:M+ 1p medium 12
+    font pango:M+ 1p 12
     position top
     strip_workspace_numbers yes
     separator_symbol " | "

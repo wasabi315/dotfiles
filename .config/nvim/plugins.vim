@@ -62,3 +62,8 @@ let g:lightline = {
     \   'gitbranch' : 'fugitive#head'
     \ },
     \ }
+
+" Goyo.vim ---------------------------------------------------------------
+
+let g:goyo_width = 100
+

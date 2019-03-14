@@ -58,3 +58,24 @@ repo = 'tpope/vim-surround'
 repo = 'autozimu/LanguageClient-neovim'
 rev = 'next'
 build = 'bash install.sh'
+
+[[plugins]]
+repo = 'ayu-theme/ayu-vim'
+
+[[plugins]]
+repo = 'junegunn/goyo.vim'
+
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'junegunn/fzf'
+
+[[plugins]]
+repo = 'tpope/vim-commentary'
+
+[[plugins]]
+repo = 'Nequo/vim-allomancer'
+
