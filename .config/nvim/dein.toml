@@ -77,5 +77,5 @@ depends = 'junegunn/fzf'
 repo = 'tpope/vim-commentary'
 
 [[plugins]]
-repo = 'Nequo/vim-allomancer'
+repo = 'jacoborus/tender.vim'
 
