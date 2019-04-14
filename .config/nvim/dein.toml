@@ -2,9 +2,6 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'Shougo/denite.nvim'
-
-[[plugins]]
 repo = 'Yggdroot/indentLine'
 
 [[plugins]]
@@ -49,9 +46,6 @@ repo = 'neovimhaskell/haskell-vim'
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
-repo = 'justinmk/vim-dirvish'
-
-[[plugins]]
 repo = 'tpope/vim-surround'
 
 [[plugins]]
@@ -60,22 +54,11 @@ rev = 'next'
 build = 'bash install.sh'
 
 [[plugins]]
-repo = 'ayu-theme/ayu-vim'
-
-[[plugins]]
 repo = 'junegunn/goyo.vim'
 
 [[plugins]]
-repo = 'junegunn/fzf'
-build = './install'
-
-[[plugins]]
 repo = 'junegunn/fzf.vim'
-depends = 'junegunn/fzf'
 
 [[plugins]]
 repo = 'tpope/vim-commentary'
-
-[[plugins]]
-repo = 'jacoborus/tender.vim'
 

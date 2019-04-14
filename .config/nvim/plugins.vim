@@ -1,12 +1,5 @@
 " ~/.config/nvim/plugins.vim
 
-" denite.nvim ------------------------------------------------------------
-
-call denite#custom#option('default', {
-    \ 'prompt': '>',
-    \ })
-
-
 " deoplete.nvim ----------------------------------------------------------
 
 let g:deoplete#enable_at_startup = 1
@@ -32,7 +25,8 @@ endfunction
 " LanguageClient-neovim --------------------------------------------------
 
 let g:LanguageClient_serverCommands = {
-    \ 'haskell': ['hie-wrapper']
+    \ 'haskell': ['hie-wrapper'],
+    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ }
 
 " indentLine -------------------------------------------------------------

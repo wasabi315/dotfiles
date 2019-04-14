@@ -40,23 +40,7 @@ nnoremap <silent> p p`]
 " disable hlsearch
 nmap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
 
-" change buffer
-noremap  [Buffer] <Nop>
-nmap     <Leader>b [Buffer]
-nnoremap [Buffer]l :bn<CR>
-nnoremap [Buffer]h :bp<CR>
-nnoremap [Buffer]d :bd<CR>
-
 " For plugins ------------------------------------------------------------
-" Denite.nvim
-noremap  [Denite]  <Nop>
-nmap     <Leader>d [Denite]
-nnoremap [Denite]f :<C-u>DeniteBufferDir file<CR>
-nnoremap [Denite]p :<C-u>DeniteProjectDir file<CR>
-nnoremap [Denite]l :<C-u>Denite line<CR>
-
-" Tagbar
-nnoremap <silent> <F9> :TagbarToggle<CR>
 
 " Goyo.vim
 nnoremap <silent> <Leader>g :Goyo<CR>
@@ -71,4 +55,16 @@ nnoremap [LC]f :call LanguageClient#textDocument_formatting()<CR>
 nnoremap [LC]b :call LanguageClient#textDocument_references()<CR>
 nnoremap [LC]a :call LanguageClient#textDocument_codeAction()<CR>
 nnoremap [LC]s :call LanguageClient#textDocument_documentSymbol()<CR>
+
+" fzf.vim
+nmap <Leader>f [FZF]
+nnoremap [FZF]f :Files<CR>
+nnoremap [FZF]g :GFiles<CR>
+nnoremap [FZF]G :GFiles?<CR>
+nnoremap [FZF]c :Commits<CR>
+nnoremap [FZF]C :BCommits<CR>
+nnoremap [FZF]b :Buffers<CR>
+nnoremap [FZF]h :History<CR>
+nnoremap [FZF]l :BLines<CR>
+nnoremap [FZF]L :Lines<CR>
 
