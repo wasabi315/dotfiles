@@ -64,7 +64,7 @@ client.focused_inactive $bg      $bg         $fg   $bg        $bg
 client.urgent           $red     $red        $bg   $red       $red
 client.background       $bg
 
-font pango: M+ 1mn medium 14
+font pango: Roboto 12
 
 for_window [window_role="pop-up"]      floating enable
 for_window [window_role="bubble"]      floating enable
@@ -81,7 +81,7 @@ for_window [class="Termite"] border pixel 25
 
 bar {
     status_command i3blocks
-    font pango:M+ 1p 12
+    font pango: Roboto 12
     position top
     strip_workspace_numbers yes
     separator_symbol " | "
