@@ -55,6 +55,7 @@ set mouse=
 set noswapfile
 set nobackup
 set ttimeoutlen=0
+set clipboard=unnamed
 
 " Colors ---------------------------------------------------------------------
 set termguicolors
