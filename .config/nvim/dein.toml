@@ -62,3 +62,8 @@ repo = 'junegunn/fzf.vim'
 [[plugins]]
 repo = 'tpope/vim-commentary'
 
+[[plugins]]
+repo = 'othree/yajs.vim'
+
+[[plugins]]
+repo = 'maxmellon/vim-jsx-pretty'
