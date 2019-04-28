@@ -1,5 +1,5 @@
-EXCLUSIONS := .git .gitmodules .gitignore .config
-CANDIDATES := $(wildcard .??*) $(wildcard .config/*) $(wildcard bin/*)
+EXCLUSIONS := .git .gitmodules .gitignore .config .xmonad
+CANDIDATES := $(wildcard .??*) $(wildcard .config/*) $(wildcard bin/*) $(wildcard .xmonad/*)
 DOTFILES   := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
 DOTPATH    := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
 

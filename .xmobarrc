@@ -1,0 +1,19 @@
+Config
+    { font    = "xft:Iosevka Custom:size=12"
+    , bgColor = "#2e3440"
+    , fgColor = "#dee8e9"
+    , lowerOnStart = False
+    , allDesktops = True
+    , persistent = True
+    , commands =
+        [ Run Cpu [ "-L", "30", "-H", "50", "--normal", "#ebcb8b", "--high", "#bf616a" ] 10
+        , Run Memory [ "-t", "Mem: <usedratio>%" ] 10
+        , Run Date "%a %b %_d %Y %H:%M" "date" 10
+        , Run StdinReader
+        ]
+    , sepChar  = "%"
+    , alignSep = "}{"
+    , template = "%StdinReader% }{ %cpu% | %memory% | %date% "
+    }
+
+-- vim: ft=haskell
