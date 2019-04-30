@@ -8,19 +8,16 @@
 #
 
 lock="Lock"
-logout="Logout"
 suspend="Suspend"
 reboot="Reboot"
 shutdown="Shutdown"
 
-content="$lock\n$logout\n$suspend\n$reboot\n$shutdown"
+content="$lock\n$suspend\n$reboot\n$shutdown"
 
 echo -e $content
 case $@ in
     $lock)
         dm-tool lock ;;
-    $logout)
-        i3-msg exit ;;
     $suspend)
         systemctl suspend ;;
     $reboot)
