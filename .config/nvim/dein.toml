@@ -41,6 +41,7 @@ repo = 'arcticicestudio/nord-vim'
 
 [[plugins]]
 repo = 'neovimhaskell/haskell-vim'
+on_ft = 'haskell'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
@@ -62,8 +63,3 @@ repo = 'junegunn/fzf.vim'
 [[plugins]]
 repo = 'tpope/vim-commentary'
 
-[[plugins]]
-repo = 'othree/yajs.vim'
-
-[[plugins]]
-repo = 'maxmellon/vim-jsx-pretty'

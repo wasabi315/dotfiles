@@ -88,3 +88,8 @@ set ignorecase
 set incsearch
 set smartcase
 set wrapscan
+
+" AutoCmds -------------------------------------------------------------------
+
+autocmd BufNewFile *.html 0r ~/.config/nvim/templates/skelton.html
+

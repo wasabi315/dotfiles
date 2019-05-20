@@ -27,7 +27,6 @@ endfunction
 let g:LanguageClient_serverCommands = {
     \ 'haskell': ['hie-wrapper'],
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-    \ 'javascript': ['javascript-typescript-stdio']
     \ }
 
 " indentLine -------------------------------------------------------------
