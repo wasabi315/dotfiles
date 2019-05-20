@@ -1,3 +1,5 @@
+{-# LANGUAGE MultiParamTypeClasses #-}
+
 --------------------------------------------------------------------------------
 --
 --                    __  ____  __                  _
@@ -5,12 +7,14 @@
 --                     >  <| |\/| / _ \ ' \/ _` / _` |
 --                    /_/\_\_|  |_\___/_||_\__,_\__,_|
 --
+--
 --------------------------------------------------------------------------------
 
 import qualified Data.Map as M
 import           Data.Monoid
 
 import           XMonad
+import           XMonad.Core
 import qualified XMonad.StackSet as W
 
 import           XMonad.Config.Desktop
@@ -20,7 +24,10 @@ import           XMonad.Hooks.InsertPosition
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.ManageHelpers
 
+import           XMonad.Layout.Fullscreen
 import           XMonad.Layout.Gaps
+import           XMonad.Layout.LayoutModifier
+import           XMonad.Layout.NoBorders
 import           XMonad.Layout.Spacing
 import           XMonad.Layout.WindowNavigation
 
@@ -32,14 +39,16 @@ import           XMonad.Util.SpawnOnce
 -- Variables
 
 myTerminal          = "termite"
+myLaunchar          = "rofi -show drun"
+myScrot             = "scrot -e 'mv $f ~/Pictures/scrots'"
+
 myFocusFollowsMouse = False
 myModMask           = mod1Mask
 myWorkspaces        = map show [1..9]
+myBorderWidth       = 8
 
 gapWidth     = 10
 spacingWidth = 10
-
-myBorderWidth = 8
 
 red    = "#bf616a"
 green  = "#a3be8c"
@@ -53,7 +62,7 @@ black  = "#2e3440"
 -- Keybindings
 
 myKeys =
-    [ ("C-;",        spawn "rofi -show drun")
+    [ ("C-;",        spawn myLaunchar)
     , ("M-<Return>", spawn myTerminal)
     , ("M-h",        sendMessage (Go L))
     , ("M-j",        sendMessage (Go D))
@@ -63,20 +72,35 @@ myKeys =
     , ("M-S-j",      sendMessage (Swap D))
     , ("M-S-k",      sendMessage (Swap U))
     , ("M-S-l",      sendMessage (Swap R))
+    , ("M-,",        sendMessage Expand)
+    , ("M-.",        sendMessage Shrink)
     , ("M-x",        kill)
     , ("M-S-r",      restart "xmonad" True)
-    , ("<Print>",    spawn "scrot -e 'mv $f ~/Pictures/scrots'")
+    , ("<Print>",    spawn myScrot)
     ]
 
 -------------------------------------------------------------------------------
 -- Layouts
 
-myLayout = windowNavigation . gaps myGaps . spacing spacingWidth
-    $   tiled
-    ||| Mirror tiled
-    ||| Full
+myLayout
+    =   modified tiled
+    ||| modified (Mirror tiled)
+    ||| noBorders Full
   where
     tiled  = Tall 1 (3 / 100) (1 / 2)
+
+
+modified
+    :: LayoutClass l a
+    => Eq a
+    => l a
+    -> ModifiedLayout WindowNavigation
+        (ModifiedLayout Gaps
+            (ModifiedLayout Spacing l)
+        )
+        a
+modified = windowNavigation . gaps myGaps . spacing spacingWidth
+  where
     myGaps = zip [U .. L] (repeat gapWidth)
 
 -------------------------------------------------------------------------------
@@ -85,6 +109,7 @@ myLayout = windowNavigation . gaps myGaps . spacing spacingWidth
 myManageHook = insertPosition End Newer <+> composeAll
     [ className =? "Termite"       --> doShift "1"
     , className =? "Google-chrome" --> doShift "2"
+    , className =? "Code"          --> doShift "3" <> fullscreenManageHook
     , className =? "feh"           --> doCenterFloat
     , isDialog                     --> doCenterFloat
     ]

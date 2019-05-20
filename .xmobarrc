@@ -1,5 +1,5 @@
 Config
-    { font = "xft:Iosevka Custom:size=12:style=medium"
+    { font = "xft:Iosevka Custom:size=12:style=medium,xft:M+ 1mn:size=12"
     , bgColor = "#2e3440"
     , fgColor = "#dee8e9"
     , lowerOnStart = False
