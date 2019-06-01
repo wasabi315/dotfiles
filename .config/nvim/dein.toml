@@ -68,6 +68,9 @@ on_ft = ['html', 'xml', 'jsx', 'tsx']
 repo = 'leafgarland/typescript-vim'
 
 [[plugins]]
+repo = 'styled-components/vim-styled-components'
+
+[[plugins]]
 repo = 'neoclide/coc.nvim'
 merge = 0
 build = 'yarn install --frozen-lockfile'
