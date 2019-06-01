@@ -56,6 +56,7 @@ set noswapfile
 set nobackup
 set ttimeoutlen=0
 set clipboard=unnamed
+set updatetime=300
 
 " Colors ---------------------------------------------------------------------
 set termguicolors
@@ -64,6 +65,14 @@ let g:nord_underline = 1
 let g:nord_uniform_diff_background = 1
 let g:nord_cursor_line_number_background = 1
 colorscheme nord
+highlight CocErrorSign ctermfg=1 guifg=#bf616a
+highlight CocWarningSign ctermfg=3 guifg=#ebcb8b
+highlight CocInfoSign ctermfg=2 guifg=#a3be8c
+highlight CocHintSign ctermfg=4 guifg=#81a1c1
+highlight CocErrorHighlight cterm=underline ctermfg=1 gui=underline guifg=#bf616a
+highlight CocWarningHighlight cterm=underline ctermfg=3 gui=underline guifg=#ebcb8b
+highlight CocInfoHighlight cterm=underline ctermfg=2 gui=underline guifg=#a3be8c
+highlight CocHintHighlight cterm=underline ctermfg=4 gui=underline guifg=#81a1c1
 
 " UI -------------------------------------------------------------------------
 set cursorline
@@ -74,6 +83,7 @@ set noshowmode
 set ruler
 set showmatch
 set wildmenu
+set signcolumn=yes
 
 " Indent and Spacing ----------------------------------------------------------
 set autoindent

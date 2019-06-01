@@ -22,13 +22,6 @@ function! Multiple_cursors_after()
     call deoplete#enable()
 endfunction
 
-" LanguageClient-neovim --------------------------------------------------
-
-let g:LanguageClient_serverCommands = {
-    \ 'haskell': ['hie-wrapper'],
-    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-    \ }
-
 " indentLine -------------------------------------------------------------
 
 let g:indentLine_char = '·'
