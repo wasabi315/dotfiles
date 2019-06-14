@@ -33,10 +33,6 @@ repo = 'jiangmiao/auto-pairs'
 on_i = 1
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-on_i = 1
-
-[[plugins]]
 repo = 'arcticicestudio/nord-vim'
 
 [[plugins]]
@@ -48,11 +44,6 @@ repo = 'itchyny/lightline.vim'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
-
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-rev = 'next'
-build = 'bash install.sh'
 
 [[plugins]]
 repo = 'junegunn/goyo.vim'
@@ -67,14 +58,19 @@ repo = 'tpope/vim-commentary'
 repo = 'HerringtonDarkholme/yats.vim'
 
 [[plugins]]
-repo = 'mhartington/nvim-typescript'
-build = './install.sh'
-
-[[plugins]]
 repo = 'MaxMEllon/vim-jsx-pretty'
 
 [[plugins]]
 repo = 'alvan/vim-closetag'
+on_ft = ['html', 'xml', 'jsx', 'tsx']
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
+
+[[plugins]]
+repo = 'styled-components/vim-styled-components'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+merge = 0
+build = 'yarn install --frozen-lockfile'

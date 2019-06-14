@@ -4,9 +4,6 @@
 
 nnoremap U <C-r>
 
-nnoremap J ^
-nnoremap K $
-
 inoremap jj <Esc>
 
 noremap <PageUp>   <Nop>
@@ -15,9 +12,6 @@ noremap <Up>       <Nop>
 noremap <Left>     <Nop>
 noremap <Down>     <Nop>
 noremap <Right>    <Nop>
-
-nnoremap ]<Space> o<Esc>'[k
-nnoremap [<Space> O<Esc>j
 
 " Leader key
 let mapleader = "\<Space>"
@@ -38,23 +32,12 @@ vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
 " disable hlsearch
-nmap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 " For plugins ------------------------------------------------------------
 
 " Goyo.vim
 nnoremap <silent> <Leader>g :Goyo<CR>
-
-" LanguageClient-neovim
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-nmap <Leader>l [LC]
-nnoremap [LC]k :call LanguageClient#textDocument_hover()<CR>
-nnoremap [LC]g :call LanguageClient#textDocument_definition()<CR>
-nnoremap [LC]r :call LanguageClient#textDocument_rename()<CR>
-nnoremap [LC]f :call LanguageClient#textDocument_formatting()<CR>
-nnoremap [LC]b :call LanguageClient#textDocument_references()<CR>
-nnoremap [LC]a :call LanguageClient#textDocument_codeAction()<CR>
-nnoremap [LC]s :call LanguageClient#textDocument_documentSymbol()<CR>
 
 " fzf.vim
 nmap <Leader>f [FZF]
@@ -67,4 +50,33 @@ nnoremap [FZF]b :Buffers<CR>
 nnoremap [FZF]h :History<CR>
 nnoremap [FZF]l :BLines<CR>
 nnoremap [FZF]L :Lines<CR>
+
+" coc.nvim
+inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-n>" : "\<C-p>"
+
+function! s:check_back_space() abort
+    let col=col('.') - 1
+    return !col || getline('.')[col - 1] =~# '\s'
+endfunction
+
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+    if (index(['vim', 'help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
+endfunction
+
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
