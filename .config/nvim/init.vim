@@ -1,7 +1,7 @@
-"
-" File       : init.vim (https://github.com/wasabi315/dotfiles)
-" Maintainer : wasabi315
-" License    : MIT
+"                    _  _             _
+"                   | \| |___ _____ _(_)_ __
+"                   | .` / -_) _ \ V / | '  \
+"                   |_|\_\___\___/\_/|_|_|_|_|
 "
 
 " dein scripts -----------------------------------------------------------
@@ -39,12 +39,8 @@ endif
 
 
 " load scripts --------------------------------------------------------------
-" plugin settings
-source ~/.config/nvim/plugins.vim
-
 " key mappings
 source ~/.config/nvim/keymap.vim
-
 
 " General --------------------------------------------------------------------
 set autoread
@@ -60,11 +56,6 @@ set updatetime=300
 
 " Colors ---------------------------------------------------------------------
 set termguicolors
-let g:nord_italics = 1
-let g:nord_underline = 1
-let g:nord_uniform_diff_background = 1
-let g:nord_cursor_line_number_background = 1
-colorscheme nord
 highlight CocErrorSign ctermfg=1 guifg=#bf616a
 highlight CocWarningSign ctermfg=3 guifg=#ebcb8b
 highlight CocInfoSign ctermfg=2 guifg=#a3be8c
@@ -100,6 +91,8 @@ set smartcase
 set wrapscan
 
 " AutoCmds -------------------------------------------------------------------
-
-autocmd BufNewFile *.html 0r ~/.config/nvim/templates/skelton.html
+augroup templateGroup
+    autocmd!
+    autocmd BufNewFile *.html 0r ~/.config/nvim/templates/skelton.html
+augroup END
 

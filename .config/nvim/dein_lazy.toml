@@ -1,1 +1,35 @@
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+on_i = 1
+
+[[plugins]]
+repo = 'neovimhaskell/haskell-vim'
+on_ft = ['hs', 'lhs']
+hook_add = '''
+    let g:haskell_enable_quantification = 1
+    let g:haskell_enable_recursivedo = 1
+    let g:haskell_arrowsyntax = 1
+    let g:haskell_enable_pattern_synonyms = 1
+    let g:haskell_indent_disable = 1
+'''
+
+[[plugins]]
+repo = 'HerringtonDarkholme/yats.vim'
+on_ft = ['ts', 'tsx']
+
+[[plugins]]
+repo = 'MaxMEllon/vim-jsx-pretty'
+on_ft = ['jsx', 'tsx']
+
+[[plugins]]
+repo = 'alvan/vim-closetag'
+on_ft = ['html', 'xml', 'jsx', 'tsx']
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['ts', 'tsx']
+
+[[plugins]]
+repo = 'styled-components/vim-styled-components'
+on_ft = ['js', 'ts', 'jsx', 'tsx']
 

@@ -1,11 +1,39 @@
 [[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+    let g:lightline = {
+        \ 'colorscheme' : 'nord',
+        \ 'active' : {
+        \   'left' : [ [ 'mode' ],
+        \              [ 'gitbranch', 'filename', 'readonly', 'modified' ] ]
+        \ },
+        \ 'component_function' : {
+        \   'gitbranch' : 'fugitive#head'
+        \ },
+        \ }
+'''
+
+[[plugins]]
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
+hook_add = '''
+    let g:indentLine_char = '·'
+    let g:indentLine_leadingSpaceChar = '·'
+    let g:indentLine_leadingSpaceEnabled = 1
+    let g:indentLine_concealcursor = ''
+'''
 
 [[plugins]]
 repo = 'ntpeters/vim-better-whitespace'
+hook_add = '''
+    let g:better_whitespace_enabled = 1
+    let g:better_whitespace_filetypes_blacklist=['diff', 'help', 'markdown']
+    let g:strip_whitespace_on_save = 1
+    let g:strip_whitespace_confirm = 0
+    let g:better_whitespace_guicolor = '#bf616a'
+'''
 
 [[plugins]]
 repo = 'terryma/vim-multiple-cursors'
@@ -29,24 +57,23 @@ repo = 'tpope/vim-fugitive'
 repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
-repo = 'jiangmiao/auto-pairs'
-on_i = 1
-
-[[plugins]]
 repo = 'arcticicestudio/nord-vim'
-
-[[plugins]]
-repo = 'neovimhaskell/haskell-vim'
-on_ft = 'haskell'
-
-[[plugins]]
-repo = 'itchyny/lightline.vim'
+hook_add = '''
+    let g:nord_italics = 1
+    let g:nord_underline = 1
+    let g:nord_uniform_diff_background = 1
+    let g:nord_cursor_line_number_background = 1
+    colorscheme nord
+'''
 
 [[plugins]]
 repo = 'tpope/vim-surround'
 
 [[plugins]]
 repo = 'junegunn/goyo.vim'
+hook_add = '''
+    let g:goyo_width = 100
+'''
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
@@ -55,22 +82,7 @@ repo = 'junegunn/fzf.vim'
 repo = 'tpope/vim-commentary'
 
 [[plugins]]
-repo = 'HerringtonDarkholme/yats.vim'
-
-[[plugins]]
-repo = 'MaxMEllon/vim-jsx-pretty'
-
-[[plugins]]
-repo = 'alvan/vim-closetag'
-on_ft = ['html', 'xml', 'jsx', 'tsx']
-
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-
-[[plugins]]
-repo = 'styled-components/vim-styled-components'
-
-[[plugins]]
 repo = 'neoclide/coc.nvim'
 merge = 0
 build = 'yarn install --frozen-lockfile'
+
