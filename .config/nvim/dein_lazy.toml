@@ -33,3 +33,24 @@ on_ft = ['ts', 'tsx']
 repo = 'styled-components/vim-styled-components'
 on_ft = ['js', 'ts', 'jsx', 'tsx']
 
+[[plugins]]
+repo = 'prettier/vim-prettier'
+build = 'yarn install'
+on_ft = [
+    'javascript',
+    'typescript',
+    'css',
+    'less',
+    'scss',
+    'jsom',
+    'graphql',
+    'markdown',
+    'vue',
+    'lua',
+    'php',
+    'python',
+    'ruby',
+    'html',
+    'swift',
+]
+
