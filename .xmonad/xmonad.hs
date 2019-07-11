@@ -29,7 +29,6 @@ import           XMonad.Layout.Gaps
 import           XMonad.Layout.LayoutModifier
 import           XMonad.Layout.NoBorders
 import           XMonad.Layout.Spacing
-import           XMonad.Layout.WindowNavigation
 
 import           XMonad.Util.EZConfig
 import           XMonad.Util.Run
@@ -64,28 +63,17 @@ black  = "#2e3440"
 myKeys =
     [ ("C-;",        spawn myLaunchar)
     , ("M-<Return>", spawn myTerminal)
-    , ("M-h",        sendMessage (Go L))
-    , ("M-j",        sendMessage (Go D))
-    , ("M-k",        sendMessage (Go U))
-    , ("M-l",        sendMessage (Go R))
-    , ("M-S-h",      sendMessage (Swap L))
-    , ("M-S-j",      sendMessage (Swap D))
-    , ("M-S-k",      sendMessage (Swap U))
-    , ("M-S-l",      sendMessage (Swap R))
-    , ("M-,",        sendMessage Expand)
-    , ("M-.",        sendMessage Shrink)
     , ("M-x",        kill)
-    , ("M-S-r",      restart "xmonad" True)
-    , ("<Print>",    spawn myScrot)
+    , ("M-<Print>",    spawn myScrot)
     ]
 
 -------------------------------------------------------------------------------
 -- Layouts
 
-myLayout
-    =   modified tiled
-    ||| modified (Mirror tiled)
-    ||| noBorders Full
+myLayout = modified
+    $   tiled
+    ||| Mirror tiled
+    ||| Full
   where
     tiled  = Tall 1 (3 / 100) (1 / 2)
 
@@ -94,12 +82,8 @@ modified
     :: LayoutClass l a
     => Eq a
     => l a
-    -> ModifiedLayout WindowNavigation
-        (ModifiedLayout Gaps
-            (ModifiedLayout Spacing l)
-        )
-        a
-modified = windowNavigation . gaps myGaps . spacing spacingWidth
+    -> ModifiedLayout Gaps (ModifiedLayout Spacing l) a
+modified = gaps myGaps . spacing spacingWidth
   where
     myGaps = zip [U .. L] (repeat gapWidth)
 
