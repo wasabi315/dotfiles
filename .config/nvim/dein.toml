@@ -1,4 +1,7 @@
 [[plugins]]
+repo = 'jiangmiao/auto-pairs'
+
+[[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
     let g:lightline = {

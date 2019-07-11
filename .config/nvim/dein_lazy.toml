@@ -1,8 +1,4 @@
 [[plugins]]
-repo = 'jiangmiao/auto-pairs'
-on_i = 1
-
-[[plugins]]
 repo = 'neovimhaskell/haskell-vim'
 on_ft = ['hs', 'lhs']
 hook_add = '''
