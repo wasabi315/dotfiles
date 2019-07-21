@@ -75,6 +75,7 @@ set ruler
 set showmatch
 set wildmenu
 set signcolumn=yes
+set foldmethod=marker
 
 " Indent and Spacing ----------------------------------------------------------
 set autoindent

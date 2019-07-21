@@ -11,7 +11,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'HerringtonDarkholme/yats.vim'
-on_ft = ['ts', 'tsx']
+on_ft = 'typescript'
 
 [[plugins]]
 repo = 'MaxMEllon/vim-jsx-pretty'
@@ -23,11 +23,15 @@ on_ft = ['html', 'xml', 'jsx', 'tsx']
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
-on_ft = ['ts', 'tsx']
+on_ft = 'typescript'
 
 [[plugins]]
 repo = 'styled-components/vim-styled-components'
-on_ft = ['js', 'ts', 'jsx', 'tsx']
+on_ft = ['javascript', 'typescript']
+
+[[plugins]]
+repo = 'jparise/vim-graphql'
+on_ft = ['javascript', 'typescript']
 
 [[plugins]]
 repo = 'prettier/vim-prettier'
@@ -50,3 +54,6 @@ on_ft = [
     'swift',
 ]
 
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
