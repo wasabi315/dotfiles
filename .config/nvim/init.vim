@@ -95,5 +95,6 @@ set wrapscan
 augroup templateGroup
     autocmd!
     autocmd BufNewFile *.html 0r ~/.config/nvim/templates/skelton.html
+    autocmd BufNewFile *.hs 0r ~/.config/nvim/templates/skelton.hs
 augroup END
 
