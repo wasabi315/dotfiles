@@ -1,31 +1,25 @@
-#!/usr/bin/env perl
+#!/bin/bash
 
-use strict;
-use warnings;
+f=3 b=4
+for j in f b; do
+  for i in {0..7}; do
+    printf -v $j$i %b "\e[${!j}${i}m"
+  done
+done
+rst=$'\e[0m'
+bld=$'\e[1m'
 
-my $fg = "\x1b[38;5;";
-my $bg = "\x1b[48;5;";
-my $rs = "\x1b[0m";
+cat << EOF
 
-my $color = 0;
+$rst
+ $f1  ██  $f2  ██  $f3  ██  $f4  ██  $f5  ██  $f6  ██  $f7
+ $f1   ██  $f2  ██  $f3  ██  $f4  ██  $f5  ██  $f6  ██ $f7
+ $f1    ██  $f2  ██  $f3  ██  $f4  ██  $f5  ██  $f6  ██  $f7 █████████████
+ $f1   █ ██  $f2█ ██  $f3█ ██  $f4█ ██  $f5█ ██  $f6█ ██  $f7
+ $f1  █   ██  $f2  ██  $f3  ██  $f4  ██  $f5  ██  $f6  ██  $f7 ███████████
+ $f1 █     ██  $f2  ██  $f3  ██  $f4  ██  $f5  ██  $f6  ██  $f7
+ $f1█       ██  $f2  ██  $f3  ██  $f4  ██  $f5  ██  $f6  ██  $f7  $bld Haskell
+$rst
 
-sub get_color {
+EOF
 
-    my ($color) = @_;
-    my $number  = sprintf '%3d', $color;
-    return qq/${bg}${color}m ${number}${rs}${fg}${color}m /;
-
-}
-
-for (my $row = 0; $row < 32; ++$row) {
-
-    for (my $col = 0; $col < 8; ++$col) {
-
-        print get_color($color);
-        ++$color;
-
-    }
-
-    print "\n";
-
-}
