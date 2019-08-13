@@ -44,7 +44,7 @@ myScrot             = "scrot -e 'mv $f ~/Pictures/scrots'"
 myFocusFollowsMouse = False
 myModMask           = mod1Mask
 myWorkspaces        = map show [1..9]
-myBorderWidth       = 8
+myBorderWidth       = 0
 
 gapWidth     = 10
 spacingWidth = 10
