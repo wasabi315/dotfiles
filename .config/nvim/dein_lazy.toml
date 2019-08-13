@@ -24,6 +24,9 @@ on_ft = ['html', 'xml', 'jsx', 'tsx']
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
 on_ft = 'typescript'
+hook_add = '''
+    let g:typescript_indent_disable = 1
+'''
 
 [[plugins]]
 repo = 'styled-components/vim-styled-components'
