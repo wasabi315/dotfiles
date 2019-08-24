@@ -1,5 +1,5 @@
 Config
-    { font = "xft:Iosevka Custom:size=12:style=medium,xft:M+ 1mn:size=12"
+    { font = "xft:Iosevka Custom-12:medium, M+ 1mn-12"
     , bgColor = "#2e3440"
     , fgColor = "#dee8e9"
     , lowerOnStart = False
@@ -12,7 +12,7 @@ Config
             , "-n", "#ebcb8b"
             , "-H", "70"
             , "-h", "#bf616a"
-            , "-t", "cpu <bar>"
+            , "-t", "CPU <bar>"
             , "-b", "·"
             , "-f", "●"
             , "-W", "5"
@@ -24,14 +24,14 @@ Config
             , "-n", "#ebcb8b"
             , "-H", "70"
             , "-h", "#bf616a"
-            , "-t", "mem <usedbar>"
+            , "-t", "MEM <usedbar>"
             , "-b", "·"
             , "-f", "●"
             , "-W", "5"
             ]
             10
         , Run DiskU
-            [ ("/", "disk <usedbar>") ]
+            [ ("/", "DISK <usedbar>") ]
             [ "-L", "30"
             , "-l", "#a3be8c"
             , "-n", "#ebcb8b"
@@ -42,12 +42,9 @@ Config
             , "-W", "5"
             ]
             20
-        , Run Date "%H:%M" "date" 10
         , Run StdinReader
         ]
-    , sepChar  = "%"
-    , alignSep = "}{"
-    , template = "%StdinReader% } %date% { %cpu%   %memory%   %disku%  "
+    , template = "%StdinReader% }{ %cpu%   %memory%   %disku%  "
     }
 
 -- vim: ft=haskell
