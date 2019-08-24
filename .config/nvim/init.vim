@@ -51,7 +51,7 @@ set mouse=
 set noswapfile
 set nobackup
 set ttimeoutlen=0
-set clipboard=unnamed
+set clipboard+=unnamedplus
 set updatetime=300
 
 " Colors ---------------------------------------------------------------------
