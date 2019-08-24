@@ -1,4 +1,4 @@
-{-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE BangPatterns #-}
 
 --------------------------------------------------------------------------------
 --
@@ -11,7 +11,6 @@
 --------------------------------------------------------------------------------
 
 import qualified Data.Map as M
-import           Data.Monoid
 
 import           XMonad
 import           XMonad.Core
@@ -24,10 +23,9 @@ import           XMonad.Hooks.InsertPosition
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.ManageHelpers
 
+import           XMonad.Layout.BinarySpacePartition
 import           XMonad.Layout.Fullscreen
 import           XMonad.Layout.Gaps
-import           XMonad.Layout.LayoutModifier
-import           XMonad.Layout.NoBorders
 import           XMonad.Layout.Spacing
 
 import           XMonad.Util.EZConfig
@@ -41,13 +39,16 @@ myTerminal          = "termite"
 myLaunchar          = "rofi -show drun"
 myScrot             = "scrot -e 'mv $f ~/Pictures/scrots'"
 
+
 myFocusFollowsMouse = False
 myModMask           = mod1Mask
 myWorkspaces        = map show [1..9]
 myBorderWidth       = 0
 
+
 gapWidth     = 10
 spacingWidth = 10
+
 
 red    = "#bf616a"
 green  = "#a3be8c"
@@ -64,38 +65,34 @@ myKeys =
     [ ("C-;",        spawn myLaunchar)
     , ("M-<Return>", spawn myTerminal)
     , ("M-x",        kill)
-    , ("M-<Print>",    spawn myScrot)
+    , ("M-<Print>",  spawn myScrot)
     ]
 
 -------------------------------------------------------------------------------
 -- Layouts
 
-myLayout = modified
-    $   tiled
-    ||| Mirror tiled
+myLayout = gaps myGaps . spacing spacingWidth
+      $ emptyBSP
     ||| Full
-  where
-    tiled  = Tall 1 (3 / 100) (1 / 2)
-
-
-modified
-    :: LayoutClass l a
-    => Eq a
-    => l a
-    -> ModifiedLayout Gaps (ModifiedLayout Spacing l) a
-modified = gaps myGaps . spacing spacingWidth
   where
     myGaps = zip [U .. L] (repeat gapWidth)
 
 -------------------------------------------------------------------------------
 -- Window rules
 
-myManageHook = insertPosition End Newer <+> composeAll
+isFloating :: Query Bool
+isFloating = liftX . withWindowSet $ \s -> do
+    let !fs = W.floating s
+        !ws = W.integrate' . W.stack . W.workspace . W.current $ s
+    pure $! any (`M.member` fs) ws
+
+
+myManageHook = composeAll
     [ className =? "Termite"       --> doShift "1"
     , className =? "Google-chrome" --> doShift "2"
-    , className =? "Code"          --> doShift "3" <> fullscreenManageHook
     , className =? "feh"           --> doCenterFloat
     , isDialog                     --> doCenterFloat
+    , not <$> isFloating           --> insertPosition End Newer
     ]
 
 -------------------------------------------------------------------------------
@@ -129,8 +126,6 @@ myConfig = desktopConfig
     , modMask            = myModMask
     , workspaces         = myWorkspaces
     , borderWidth        = myBorderWidth
-    , normalBorderColor  = black
-    , focusedBorderColor = gray
     , layoutHook         = avoidStruts myLayout
     , manageHook         = myManageHook
     , startupHook        = myStartupHook
