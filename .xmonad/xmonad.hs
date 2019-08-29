@@ -35,7 +35,7 @@ import           XMonad.Util.SpawnOnce
 -------------------------------------------------------------------------------
 -- Variables
 
-myTerminal          = "termite"
+myTerminal          = "kitty"
 myLaunchar          = "rofi -show drun"
 myScrot             = "scrot -e 'mv $f ~/Pictures/scrots'"
 
