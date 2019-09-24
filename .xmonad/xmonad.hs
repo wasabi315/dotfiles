@@ -10,6 +10,7 @@
 --
 --------------------------------------------------------------------------------
 
+import           Data.List
 import qualified Data.Map as M
 
 import           XMonad
@@ -22,10 +23,12 @@ import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.InsertPosition
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.ManageHelpers
+import           XMonad.Hooks.SetWMName
 
 import           XMonad.Layout.BinarySpacePartition
 import           XMonad.Layout.Fullscreen
 import           XMonad.Layout.Gaps
+import           XMonad.Layout.NoBorders
 import           XMonad.Layout.Spacing
 
 import           XMonad.Util.EZConfig
@@ -35,7 +38,7 @@ import           XMonad.Util.SpawnOnce
 -------------------------------------------------------------------------------
 -- Variables
 
-myTerminal          = "kitty"
+myTerminal          = "termite"
 myLaunchar          = "rofi -show drun"
 myScrot             = "scrot -e 'mv $f ~/Pictures/scrots'"
 
@@ -87,19 +90,27 @@ isFloating = liftX . withWindowSet $ \s -> do
     pure $! any (`M.member` fs) ws
 
 
+(~?) :: Query String -> String -> Query Bool
+q ~? s = isSuffixOf s <$> q
+
+
 myManageHook = composeAll
-    [ className =? "Termite"       --> doShift "1"
-    , className =? "Google-chrome" --> doShift "2"
-    , className =? "feh"           --> doCenterFloat
-    , isDialog                     --> doCenterFloat
+    [ isDialog                     --> doCenterFloat
     , not <$> isFloating           --> insertPosition End Newer
+    , title     ~? "traQ"          --> doShift "3"
+    , className =? "Termite"       --> doShift "1"
+    , className =? "Google-chrome" --> doShift "2"
+    , className =? "Slack"         --> doShift "3"
+    , className =? "feh"           --> doCenterFloat
     ]
 
 -------------------------------------------------------------------------------
 -- Startup hook
 
 myStartupHook = do
+    setWMName "LG3D"
     spawnOnce "~/.fehbg"
+    spawnOnce myTerminal
 
 -------------------------------------------------------------------------------
 -- Status bar
