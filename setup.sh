@@ -1,7 +1,20 @@
 #!/bin/bash -eu
 
+info() {
+    echo "$(tput bold)$(tput setaf 2)$1$(tput sgr0)"
+}
+
+err() {
+    echo " $(tput bold)$(tput setaf 1)$1$(tput sgr0)" >&2
+}
+
+has() {
+    type -P "$1" >/dev/null 2>&1
+    return $?
+}
+
 if [ -z "${DOTPATH:-}" ]; then
-    DOTPATH="${HOME}/.dotfiles"; export DOTPATH
+    export DOTPATH="${HOME}/.dotfiles"
 fi
 
 GITHUB_URL="https://github.com/wasabi315/dotfiles.git"
@@ -9,33 +22,38 @@ TARBALL="https://github.com/wasabi315/dotfiles/tarball/master"
 
 
 cat <<HEADER
- ___   ___ _____ ___ ___ _    ___ ___
-|   \ / _ \_   _| __|_ _| |  | __/ __|
-| |) | (_) || | | _| | || |__| _|\___\\
-|___/ \___/ |_| |_| |___|____|___|___/ wasabi315's dotfiles
+       _     _    __ _ _
+    __| |___| |_ / _(_) |___ ___
+  _/ _\` / _ \  _|  _| | / -_|_-<
+ (_)__,_\___/\__|_| |_|_\___/__/
 
 HEADER
 
 if [ -d "${DOTPATH}" ]; then
-    echo "$(tput bold)$(tput setaf 1)ERROR: dotfiles is already installed on this system.$(tput sgr0)" >&2
+    err "Dotfiles already exists at ${DOTPATH}"
     exit 1
 fi
 
-echo "$(tput setaf 1)This will download dotfiles to ~/.dotfiles directory.$(tput sgr0)"
-echo "$(tput setaf 1)Continue? (y/n)$(tput sgr0): "
-read -r -p "[Y|n]" response
-if [[ $response =~ ^(yes|y|Y) ]]; then
-    echo "$(tput setaf 7)Downloading dotfiles...$(tput sgr0)"
+info "Downloading dotfiles..."
+if has git; then
+    git clone ${GITHUB_URL} ${DOTPATH}
+elif has curl || has wget; then
+    if has curl; then
+        curl -sL ${TARBALL}
+    elif has wget; then
+        wget -qO ${TARBALL}
+    fi | tar xzvf
 else
-    echo "$(tput bold)$(tput setaf 7)Process terminated by user.$(tput sgr0)\n"
+    err "curl or wget is required"
     exit 1
 fi
 
-mkdir ${DOTPATH}
+cd ${DOTPATH}
+info "Deploying dotfiles..."
+make deploy
 
-wget -qO ${HOME}/dotfiles.tar.gz ${git_tarball}
-tar -xzvf ${HOME}/dotfiles.tar.gz -C ${DOTPATH}
-rm ${HOME}/dotfiles.tar.gz
+info "Installing packages and Initializing..."
+make init
 
-echo "$(tput bold)$(tput setaf 2)Done$(tput sgr0)\n"
+info "Done!"
 
