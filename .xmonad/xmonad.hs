@@ -95,13 +95,15 @@ q ~? s = isSuffixOf s <$> q
 
 
 myManageHook = composeAll
-    [ isDialog                     --> doCenterFloat
-    , not <$> isFloating           --> insertPosition End Newer
-    , title     ~? "traQ"          --> doShift "3"
-    , className =? "Termite"       --> doShift "1"
-    , className =? "Google-chrome" --> doShift "2"
-    , className =? "Slack"         --> doShift "3"
-    , className =? "feh"           --> doCenterFloat
+    [ isDialog                      --> doCenterFloat
+    , not <$> isFloating            --> insertPosition End Newer
+    , title     ~? "traQ"           --> doShift "4"
+    , className =? "Termite"        --> doShift "1"
+    , className =? "Google-chrome"  --> doShift "2"
+    , className =? "Slack"          --> doShift "4"
+    , className =? "code-oss"       --> doShift "3"
+    , className =? "GravitDesigner" --> doShift "5"
+    , className =? "feh"            --> doCenterFloat
     ]
 
 -------------------------------------------------------------------------------
