@@ -70,6 +70,7 @@ set cursorline
 set history=1000
 set laststatus=2
 set number
+set relativenumber
 set noshowmode
 set ruler
 set showmatch

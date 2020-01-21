@@ -2,6 +2,7 @@ Config
     { font = "xft:Liga Iosevka Custom-12:medium, M+ 1mn-12"
     , bgColor = "#2e3440"
     , fgColor = "#dee8e9"
+    , position = Static { xpos = 20, ypos = 10, width = 1880, height = 45 }
     , lowerOnStart = False
     , allDesktops = True
     , persistent = True
@@ -44,7 +45,7 @@ Config
             20
         , Run StdinReader
         ]
-    , template = "%StdinReader% }{ %cpu%   %memory%   %disku%  "
+    , template = " %StdinReader% }{ %cpu%   %memory%   %disku%  "
     }
 
 -- vim: ft=haskell

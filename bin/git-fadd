@@ -1,0 +1,11 @@
+#!/bin/bash -eu
+
+modefied=$(git status --short | awk '{print $2}')
+if [ -z "$modefied" ]; then
+    echo "no modified files"
+    exit 0
+fi
+
+seleceted=$(echo "$modefied" | fzf -m --preview 'git diff --color {}')
+git add "${seleceted[@]}"
+

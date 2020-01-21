@@ -89,3 +89,12 @@ repo = 'neoclide/coc.nvim'
 merge = 0
 build = 'yarn install --frozen-lockfile'
 
+[[plugins]]
+repo = 'cocopon/vaffle.vim'
+hook_add = '''
+    let g:vaffle_auto_cd = 1
+    let g:vaffle_show_hidden_files = 1
+'''
+
+[[plugins]]
+repo = 'rhysd/git-messenger.vim'

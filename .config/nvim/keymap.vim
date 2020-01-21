@@ -13,31 +13,29 @@ noremap <Left>     <Nop>
 noremap <Down>     <Nop>
 noremap <Right>    <Nop>
 
-" Leader key
 let mapleader = "\<Space>"
 
-" highlight the word under the cursor
 nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 
-" replace all words under the cursor
 nmap # <Space><Space>:%s/<C-r>///g<Left><Left>
 
-" expand region
-vmap v     <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
+vmap v <Plug>(expand_region_expand)
+vmap V <Plug>(expand_region_shrink)
 
-" paste
 vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
-" disable hlsearch
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
+if has("nvim")
+    autocmd TermOpen * tnoremap <Esc> <C-\><C-N>
+endif
 
 " For plugins ------------------------------------------------------------
 
 " Goyo.vim
-nnoremap <silent> <Leader>g :Goyo<CR>
+nnoremap <silent> <Leader>gy :Goyo<CR>
 
 " fzf.vim
 nmap <Leader>f [FZF]
@@ -80,3 +78,5 @@ nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+" Vaffle
+nnoremap <silent> <Leader>v :Vaffle<CR>

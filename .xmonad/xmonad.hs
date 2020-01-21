@@ -112,6 +112,7 @@ myManageHook = composeAll
 myStartupHook = do
     setWMName "LG3D"
     spawnOnce "~/.fehbg"
+    spawnOnce "picom -b --config $HOME/.config/picom/picom.conf"
     spawnOnce myTerminal
 
 -------------------------------------------------------------------------------
