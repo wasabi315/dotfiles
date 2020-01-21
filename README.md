@@ -1,4 +1,4 @@
 # dotfiles
 
-![Screenshot1](https://user-images.githubusercontent.com/38744885/56973174-4900a400-6ba7-11e9-96c7-d55c5d91320c.png)
-![Screenshot2](https://user-images.githubusercontent.com/38744885/56970079-5ca90c00-6ba1-11e9-80f4-1814f976dde1.png)
+![Screenshot1](https://user-images.githubusercontent.com/38744885/72766932-63971380-3c35-11ea-92af-f6b89c1dbffb.png)
+![Screenshot2](https://user-images.githubusercontent.com/38744885/72766876-229eff00-3c35-11ea-9f95-50985f7070fc.png)
