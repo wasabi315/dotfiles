@@ -38,9 +38,10 @@ import           XMonad.Util.SpawnOnce
 -------------------------------------------------------------------------------
 -- Variables
 
-myTerminal          = "termite"
-myLaunchar          = "rofi -show drun"
-myScrot             = "scrot -e 'mv $f ~/Pictures/scrots'"
+myTerminal     = "termite"
+myLaunchar     = "rofi -show drun"
+myScrotEntire  = "scrot '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/'"
+myScrotPartial = "scrot -s '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/'"
 
 
 myFocusFollowsMouse = False
@@ -65,10 +66,11 @@ black  = "#2e3440"
 -- Keybindings
 
 myKeys =
-    [ ("C-;",        spawn myLaunchar)
-    , ("M-<Return>", spawn myTerminal)
-    , ("M-x",        kill)
-    , ("M-<Print>",  spawn myScrot)
+    [ ("C-;",         spawn myLaunchar)
+    , ("M-<Return>",  spawn myTerminal)
+    , ("M-x",         kill)
+    , ("M-<Print>",   spawn myScrotEntire)
+    , ("S-M-<Print>", spawn myScrotPartial)
     ]
 
 -------------------------------------------------------------------------------
@@ -90,20 +92,16 @@ isFloating = liftX . withWindowSet $ \s -> do
     pure $! any (`M.member` fs) ws
 
 
-(~?) :: Query String -> String -> Query Bool
-q ~? s = isSuffixOf s <$> q
-
-
 myManageHook = composeAll
     [ isDialog                      --> doCenterFloat
     , not <$> isFloating            --> insertPosition End Newer
-    , title     ~? "traQ"           --> doShift "4"
     , className =? "Termite"        --> doShift "1"
     , className =? "Google-chrome"  --> doShift "2"
     , className =? "Slack"          --> doShift "4"
     , className =? "code-oss"       --> doShift "3"
     , className =? "GravitDesigner" --> doShift "5"
     , className =? "feh"            --> doCenterFloat
+    , className =? "fontpreview"    --> doFloat
     ]
 
 -------------------------------------------------------------------------------
@@ -112,7 +110,7 @@ myManageHook = composeAll
 myStartupHook = do
     setWMName "LG3D"
     spawnOnce "~/.fehbg"
-    spawnOnce "picom -b --config $HOME/.config/picom/picom.conf"
+    spawnOnce "picom --config $HOME/.config/picom/picom.conf &"
     spawnOnce myTerminal
 
 -------------------------------------------------------------------------------
