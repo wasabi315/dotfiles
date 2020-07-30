@@ -104,8 +104,6 @@ if ! shopt -oq posix; then
     fi
 fi
 
-eval "$(stack --bash-completion-script stack)"
-
 # Autostart tmux ---------------------------------------------------------
 
 # if [[ -z "$TMUX" ]]; then
