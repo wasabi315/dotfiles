@@ -38,16 +38,16 @@ endif
 nnoremap <silent> <Leader>gy :Goyo<CR>
 
 " fzf.vim
-nmap <Leader>f [FZF]
-nnoremap [FZF]f :Files<CR>
-nnoremap [FZF]g :GFiles<CR>
-nnoremap [FZF]G :GFiles?<CR>
-nnoremap [FZF]c :Commits<CR>
-nnoremap [FZF]C :BCommits<CR>
-nnoremap [FZF]b :Buffers<CR>
-nnoremap [FZF]h :History<CR>
-nnoremap [FZF]l :BLines<CR>
-nnoremap [FZF]L :Lines<CR>
+" nmap <Leader>f [FZF]
+" nnoremap [FZF]f :Files<CR>
+" nnoremap [FZF]g :GFiles<CR>
+" nnoremap [FZF]G :GFiles?<CR>
+" nnoremap [FZF]c :Commits<CR>
+" nnoremap [FZF]C :BCommits<CR>
+" nnoremap [FZF]b :Buffers<CR>
+" nnoremap [FZF]h :History<CR>
+" nnoremap [FZF]l :BLines<CR>
+" nnoremap [FZF]L :Lines<CR>
 
 " coc.nvim
 inoremap <silent><expr> <TAB>

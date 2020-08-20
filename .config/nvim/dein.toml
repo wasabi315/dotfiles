@@ -98,3 +98,8 @@ hook_add = '''
 
 [[plugins]]
 repo = 'rhysd/git-messenger.vim'
+
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+hook_add = 'call wasabi315#init#defx#hook_add()'
+
