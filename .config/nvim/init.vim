@@ -56,14 +56,6 @@ set updatetime=300
 
 " Colors ---------------------------------------------------------------------
 set termguicolors
-highlight CocErrorSign ctermfg=1 guifg=#bf616a
-highlight CocWarningSign ctermfg=3 guifg=#ebcb8b
-highlight CocInfoSign ctermfg=2 guifg=#a3be8c
-highlight CocHintSign ctermfg=4 guifg=#81a1c1
-highlight CocErrorHighlight cterm=underline ctermfg=1 gui=underline guifg=#bf616a
-highlight CocWarningHighlight cterm=underline ctermfg=3 gui=underline guifg=#ebcb8b
-highlight CocInfoHighlight cterm=underline ctermfg=2 gui=underline guifg=#a3be8c
-highlight CocHintHighlight cterm=underline ctermfg=4 gui=underline guifg=#81a1c1
 
 " UI -------------------------------------------------------------------------
 set cursorline
@@ -77,6 +69,7 @@ set showmatch
 set wildmenu
 set signcolumn=yes
 set foldmethod=marker
+set showtabline=2
 
 " Indent and Spacing ----------------------------------------------------------
 set autoindent

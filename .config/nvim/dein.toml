@@ -10,10 +10,25 @@ hook_add = '''
         \   'left' : [ [ 'mode' ],
         \              [ 'gitbranch', 'filename', 'readonly', 'modified' ] ]
         \ },
+        \ 'tabline' : {
+        \   'left' : [ ['buffers'] ],
+        \ },
         \ 'component_function' : {
         \   'gitbranch' : 'fugitive#head'
         \ },
+        \ 'component_expand' : {
+        \   'buffers' : 'lightline#bufferline#buffers'
+        \ },
+        \ 'component_type' : {
+        \   'buffers' : 'tabsel'
         \ }
+        \ }
+'''
+
+[[plugins]]
+repo = 'mengelbrecht/lightline-bufferline'
+hook_add = '''
+    let g:lightline#bufferline#show_number = 2
 '''
 
 [[plugins]]
@@ -73,28 +88,12 @@ hook_add = '''
 repo = 'tpope/vim-surround'
 
 [[plugins]]
-repo = 'junegunn/goyo.vim'
-hook_add = '''
-    let g:goyo_width = 100
-'''
-
-[[plugins]]
-repo = 'junegunn/fzf.vim'
-
-[[plugins]]
 repo = 'tpope/vim-commentary'
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 merge = 0
 build = 'yarn install --frozen-lockfile'
-
-[[plugins]]
-repo = 'cocopon/vaffle.vim'
-hook_add = '''
-    let g:vaffle_auto_cd = 1
-    let g:vaffle_show_hidden_files = 1
-'''
 
 [[plugins]]
 repo = 'rhysd/git-messenger.vim'
