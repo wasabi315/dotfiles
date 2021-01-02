@@ -23,8 +23,6 @@ zinit light-mode for \
 
 setopt IGNOREEOF
 
-export LANG=ja_JP.UTF-8
-
 autoload -Uz colors
 colors
 
@@ -86,9 +84,6 @@ zstyle ':zle:*' word-style unspecified
 
 setopt no_flow_control
 
-PROMPT="%(?.%{${fg[green]}%}.%{${fg[red]}%})%n${reset_color}@${fg[blue]}%m${reset_color}(%*%) %~
-%# "
-
 zstyle ':completion:*:default' menu select=2
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -107,13 +102,16 @@ autoload -Uz chpwd_recent_dirs cdr
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ":chpwd:*" recent-dirs-default true
 
-RPROMPT="%{${fg[blue]}%}[%~]%{${reset_color}%}"
 autoload -Uz vcs_info
-setopt prompt_subst
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
 zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
 zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
-precmd () { vcs_info }
-RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
+
+setopt prompt_subst
+PROMPT='%B%(?.%{${fg[green]}%}.%{${fg[red]}%})%n${reset_color} %B${fg[blue]}[ %~ ]${reset_color}%b %B${vcs_info_msg_0_}%b
+%# '
+
