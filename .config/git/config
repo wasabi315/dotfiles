@@ -1,0 +1,7 @@
+[user]
+	email = wasabi.nvim.st@gmail.com
+	name = wasabi315
+[pull]
+	rebase = false
+[color]
+	ui = true
