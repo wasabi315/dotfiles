@@ -54,12 +54,9 @@ alias -g G='| grep'
 alias -g GI='| grep -ri'
 
 
-alias lst='ls -ltr --color=auto'
 alias l='ls -ltr --color=auto'
 alias la='ls -la --color=auto'
 alias ll='ls -l --color=auto'
-alias vi='nvim'
-alias h='fc -lt '%F %T' 1'
 alias cp='cp -i'
 alias rm='rm -i'
 alias mkdir='mkdir -p'
@@ -67,13 +64,10 @@ alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
-alias back='pushd'
-alias diff='diff -U1'
+alias vi='nvim'
 
 stty erase ^H
 bindkey "^[[3~" delete-char
-
-chpwd() { ls -ltr --color=auto }
 
 cdpath=(~)
 
@@ -108,10 +102,10 @@ precmd_functions+=( precmd_vcs_info )
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
 zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
-zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+zstyle ':vcs_info:*' formats "%F{green}%c%u[ %b ]%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 
 setopt prompt_subst
-PROMPT='%B%(?.%{${fg[cyan]}%}.%{${fg[red]}%})%n${reset_color} %B${fg[blue]}[ %~ ]${reset_color}%b %B${vcs_info_msg_0_}%b
-%# '
+PROMPT='%B%F{cyan}%n %F{blue}[ %~ ] ${vcs_info_msg_0_}%b
+%(?.%F{blue}.%F{red})%(!.#.>>=)%f '
 
