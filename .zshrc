@@ -48,14 +48,9 @@ setopt pushd_ignore_dups
 setopt correct
 
 
-alias -g L='| less'
-alias -g H='| head'
-alias -g G='| grep'
-alias -g GI='| grep -ri'
-
-
-alias l='ls -ltr --color=auto'
-alias la='ls -la --color=auto'
+alias l='ls --color=auto'
+alias ls='ls --color=auto'
+alias la='ls -a --color=auto'
 alias ll='ls -l --color=auto'
 alias cp='cp -i'
 alias rm='rm -i'
@@ -64,10 +59,8 @@ alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
+alias v='nvim'
 alias vi='nvim'
-
-stty erase ^H
-bindkey "^[[3~" delete-char
 
 cdpath=(~)
 
@@ -92,20 +85,17 @@ bindkey "^p" history-beginning-search-backward-end
 bindkey "^b" history-beginning-search-forward-end
 
 autoload -Uz add-zsh-hook
-autoload -Uz chpwd_recent_dirs cdr
-add-zsh-hook chpwd chpwd_recent_dirs
-zstyle ":chpwd:*" recent-dirs-default true
 
 autoload -Uz vcs_info
-precmd_vcs_info() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
+_precmd_vcs_info() { vcs_info }
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
 zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
 zstyle ':vcs_info:*' formats "%F{green}%c%u[ %b ]%f"
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
+zstyle ':vcs_info:*' actionformats '%F{magenta}[ %b | %a ]%f'
+add-zsh-hook precmd _precmd_vcs_info
 
 setopt prompt_subst
-PROMPT='%B%F{cyan}%n %F{blue}[ %~ ] ${vcs_info_msg_0_}%b
+PROMPT='%B%F{cyan}%n%f %F{blue}[ %~ ]%f ${vcs_info_msg_0_}%b
 %(?.%F{blue}.%F{red})%(!.#.>>=)%f '
 
