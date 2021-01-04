@@ -112,6 +112,6 @@ zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 
 setopt prompt_subst
-PROMPT='%B%(?.%{${fg[green]}%}.%{${fg[red]}%})%n${reset_color} %B${fg[blue]}[ %~ ]${reset_color}%b %B${vcs_info_msg_0_}%b
+PROMPT='%B%(?.%{${fg[cyan]}%}.%{${fg[red]}%})%n${reset_color} %B${fg[blue]}[ %~ ]${reset_color}%b %B${vcs_info_msg_0_}%b
 %# '
 
