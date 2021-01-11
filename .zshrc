@@ -21,6 +21,8 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
+path+=("$HOME/bin")
+
 setopt IGNOREEOF
 
 autoload -Uz colors
