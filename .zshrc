@@ -22,6 +22,9 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 path+=("$HOME/bin")
+path+=("$HOME/.local/bin")
+path+=("$HOME/.cargo/bin")
+path+=("$HOME/.npm-global/bin")
 
 setopt IGNOREEOF
 
