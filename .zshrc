@@ -26,6 +26,11 @@ path+=("$HOME/.local/bin")
 path+=("$HOME/.cargo/bin")
 path+=("$HOME/.npm-global/bin")
 
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
+
+# opam configuration
+test -r $HOME/.opam/opam-init/init.zsh && . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
 setopt IGNOREEOF
 
 autoload -Uz colors
@@ -53,10 +58,6 @@ setopt pushd_ignore_dups
 setopt correct
 
 
-alias l='ls --color=auto'
-alias ls='ls --color=auto'
-alias la='ls -a --color=auto'
-alias ll='ls -l --color=auto'
 alias cp='cp -i'
 alias rm='rm -i'
 alias mkdir='mkdir -p'
