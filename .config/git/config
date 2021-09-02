@@ -12,3 +12,5 @@
 	required = true
 [core]
 	excludesfile = /Users/wasabi/.config/git/ignore
+[init]
+	defaultBranch = main
