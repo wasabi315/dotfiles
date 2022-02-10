@@ -12,5 +12,6 @@
 	required = true
 [core]
 	excludesfile = /Users/wasabi/.config/git/ignore
+    editor = 'vi'
 [init]
 	defaultBranch = main
