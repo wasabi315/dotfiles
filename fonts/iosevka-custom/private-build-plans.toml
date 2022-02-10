@@ -1,0 +1,36 @@
+[buildPlans.iosevka-custom]
+family = "Iosevka Custom"
+spacing = "term"
+serifs = "sans"
+no-cv-ss = true
+
+[buildPlans.iosevka-custom.variants.design]
+capital-g = "toothed-serifless-hookless"
+capital-q = "crossing"
+i = "hooky"
+l = "tailed-serifed"
+t = "standard-short-neck"
+y = "straight-turn"
+lower-lambda = "straight-turn"
+lower-mu = "tailless"
+zero = "dotted"
+two = "straight-neck"
+asterisk = "penta-low"
+brace = "straight"
+ampersand = "upper-open"
+at = "fourfold-solid-inner"
+dollar = "open"
+cent = "open"
+percent = "dots"
+lig-ltgteq = "slanted"
+
+[buildPlans.iosevka-custom.variants.italic]
+a = "single-storey-serifless"
+d = "toothed-serifless"
+f = "serifless"
+k = "curly-serifless"
+l = "serifed-flat-tailed"
+u = "toothed"
+
+[buildPlans.iosevka-custom.ligations]
+inherits = "haskell"
