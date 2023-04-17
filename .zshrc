@@ -65,8 +65,6 @@ alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
-alias v='nvim'
-alias vi='nvim'
 
 cdpath=(~)
 
@@ -92,16 +90,19 @@ bindkey "^b" history-beginning-search-forward-end
 
 autoload -Uz add-zsh-hook
 
-autoload -Uz vcs_info
-_precmd_vcs_info() { vcs_info }
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
-zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
-zstyle ':vcs_info:*' formats "%F{green}%c%u[ %b ]%f"
-zstyle ':vcs_info:*' actionformats '%F{magenta}[ %b | %a ]%f'
-add-zsh-hook precmd _precmd_vcs_info
+# fpath+=("$(brew --prefix)/share/zsh/site-functions")
+# autoload -U promptinit; promptinit
+# PURE_PROMPT_SYMBOL=">>="
+# prompt pure
 
-setopt prompt_subst
-PROMPT='%B%F{cyan}%n%f %F{blue}[ %~ ]%f ${vcs_info_msg_0_}%b
-%(?.%F{blue}.%F{red})%(!.#.>>=)%f '
 
+PATH="/Users/wasabi/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/wasabi/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/wasabi/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/wasabi/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/wasabi/perl5"; export PERL_MM_OPT;
+export PATH=/Users/wasabi/.cache/rebar3/bin:$PATH
+
+export TERM_ITALICS=true
+
+eval "$(starship init zsh)"
